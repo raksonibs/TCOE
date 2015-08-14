@@ -1,0 +1,16 @@
+{
+  "name": "photographer-news",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jhwang90/angular-rails",
+  "authors": [
+    "jhwang90 <jhwang90@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,20 +1,20 @@
-angular.module('writeBlog', ['ui.router', 'templates'])
+angular.module('photographerNews', ['ui.router','templates'])
 .config([
 '$stateProvider',
 '$urlRouterProvider',
 function($stateProvider, $urlRouterProvider) {
+	
+	$stateProvider
+		.state('home', {
+			url: '/home',
+			templateUrl: 'home/_home.html',
+			controller: 'MainCtrl'
+		})
+		.state('posts', {
+			url: '/posts/{id}',
+			templateUrl: 'posts/_posts.html',
+			controller: 'PostsCtrl'
+		});
 
-  $stateProvider
-    .state('home', {
-      url: '/home',
-      templateUrl: 'home/_home.html',
-      controller: 'MainCtrl'
-    });
-    .state('posts', {
-      url: '/posts/{id}',
-      templateUrl: 'posts/_posts.html',
-      controller: 'PostsCtrl'
-    });
-
-  $urlRouterProvider.otherwise('home');
-}])
+		$urlRouterProvider.otherwise('home');
+}]);

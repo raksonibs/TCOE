@@ -1,7 +1,21 @@
-angular.module('writeBlog')
-.factory('posts', [function(){
-   var o = {
-    posts: []
-  };
-  return o;
-}])
+angular.module('photographerNews')
+.factory('posts', [
+'$http',
+
+
+function($http){
+	var o = {
+		posts: [{title:"hey",upvotes:123}]
+	};
+	o.getAll = function() {
+		return $http.get('/posts.json').success(function(data) {
+			angular.copy(data, o.posts);
+		});
+	};
+	o.create = function() {
+		return $http.post('/posts.json', post).success(function(data){
+			o.posts.push(data);
+		});
+	};
+	return o;	
+}]);

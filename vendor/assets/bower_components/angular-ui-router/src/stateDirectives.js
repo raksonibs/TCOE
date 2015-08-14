@@ -78,7 +78,7 @@ function stateContext(el) {
  */
 $StateRefDirective.$inject = ['$state', '$timeout'];
 function $StateRefDirective($state, $timeout) {
-  var allowedOptions = ['location', 'inherit', 'reload', 'absolute'];
+  var allowedOptions = ['location', 'inherit', 'reload'];
 
   return {
     restrict: 'A',
@@ -86,12 +86,9 @@ function $StateRefDirective($state, $timeout) {
     link: function(scope, element, attrs, uiSrefActive) {
       var ref = parseStateRef(attrs.uiSref, $state.current.name);
       var params = null, url = null, base = stateContext(element) || $state.$current;
-      // SVGAElement does not use the href attribute, but rather the 'xlinkHref' attribute.
-      var hrefKind = Object.prototype.toString.call(element.prop('href')) === '[object SVGAnimatedString]' ?
-                 'xlink:href' : 'href';
-      var newHref = null, isAnchor = element.prop("tagName").toUpperCase() === "A";
+      var newHref = null, isAnchor = element.prop("tagName") === "A";
       var isForm = element[0].nodeName === "FORM";
-      var attr = isForm ? "action" : hrefKind, nav = true;
+      var attr = isForm ? "action" : "href", nav = true;
 
       var options = { relative: base, inherit: true };
       var optionsOverride = scope.$eval(attrs.uiSrefOpts) || {};
@@ -110,7 +107,7 @@ function $StateRefDirective($state, $timeout) {
 
         var activeDirective = uiSrefActive[1] || uiSrefActive[0];
         if (activeDirective) {
-          activeDirective.$$addStateInfo(ref.state, params);
+          activeDirective.$$setStateInfo(ref.state, params);
         }
         if (newHref === null) {
           nav = false;
@@ -229,7 +226,7 @@ function $StateRefActiveDirective($state, $stateParams, $interpolate) {
   return  {
     restrict: "A",
     controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
-      var states = [], activeClass;
+      var state, params, activeClass;
 
       // There probably isn't much point in $observing this
       // uiSrefActive and uiSrefActiveEq share the same directive object with some
@@ -237,14 +234,9 @@ function $StateRefActiveDirective($state, $stateParams, $interpolate) {
       activeClass = $interpolate($attrs.uiSrefActiveEq || $attrs.uiSrefActive || '', false)($scope);
 
       // Allow uiSref to communicate with uiSrefActive[Equals]
-      this.$$addStateInfo = function (newState, newParams) {
-        var state = $state.get(newState, stateContext($element));
-
-        states.push({
-          state: state || { name: newState },
-          params: newParams
-        });
-
+      this.$$setStateInfo = function (newState, newParams) {
+        state = $state.get(newState, stateContext($element));
+        params = newParams;
         update();
       };
 
@@ -252,27 +244,18 @@ function $StateRefActiveDirective($state, $stateParams, $interpolate) {
 
       // Update route state
       function update() {
-        if (anyMatch()) {
+        if (isMatch()) {
           $element.addClass(activeClass);
         } else {
           $element.removeClass(activeClass);
         }
       }
 
-      function anyMatch() {
-        for (var i = 0; i < states.length; i++) {
-          if (isMatch(states[i].state, states[i].params)) {
-            return true;
-          }
-        }
-        return false;
-      }
-
-      function isMatch(state, params) {
+      function isMatch() {
         if (typeof $attrs.uiSrefActiveEq !== 'undefined') {
-          return $state.is(state.name, params);
+          return state && $state.is(state.name, params);
         } else {
-          return $state.includes(state.name, params);
+          return state && $state.includes(state.name, params);
         }
       }
     }]

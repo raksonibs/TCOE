@@ -55,7 +55,7 @@ function objectKeys(object) {
   }
   var result = [];
 
-  forEach(object, function(val, key) {
+  angular.forEach(object, function(val, key) {
     result.push(key);
   });
   return result;

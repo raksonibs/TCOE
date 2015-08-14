@@ -274,7 +274,6 @@ function $ViewDirectiveFill (  $compile,   $controller,   $state,   $interpolate
 
         if (locals.$$controller) {
           locals.$scope = scope;
-          locals.$element = $element;
           var controller = $controller(locals.$$controller, locals);
           if (locals.$$controllerAs) {
             scope[locals.$$controllerAs] = controller;
