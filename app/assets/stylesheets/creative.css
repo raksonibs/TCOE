@@ -141,7 +141,7 @@ hr.small {
   background-size: cover;
   -o-background-size: cover;
   margin-bottom: 50px;
-  background-image: url('/assets/header.jpg')
+  background-image: url('/assets/books.jpg')
 }
 .intro-header .site-heading,
 .intro-header .post-heading,
@@ -393,4 +393,12 @@ img::-moz-selection {
 }
 body {
   webkit-tap-highlight-color: #0085a1;
+}
+
+p.centered {
+  text-align: center;
+}
+
+h3.post-subtitle {
+  font-weight: 100;
 }
