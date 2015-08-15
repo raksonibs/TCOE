@@ -15,6 +15,16 @@ function($stateProvider, $urlRouterProvider) {
 			templateUrl: 'elements/_elements.html',
 			controller: 'elementsCtrl'
 		})
+		.state('personal', {
+			url: '/personal',
+			templateUrl: 'personal/_personal.html',
+			controller: 'personalCtrl'
+		})
+		.state('about', {
+			url: '/about',
+			templateUrl: 'about/_about.html',
+			controller: 'aboutCtrl'
+		})
 		.state('posts', {
 			url: '/posts/{id}',
 			templateUrl: 'posts/_posts.html',
