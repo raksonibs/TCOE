@@ -402,3 +402,186 @@ p.centered {
 h3.post-subtitle {
   font-weight: 100;
 }
+
+body {
+  position: relative;
+  /* we need this for the scrollspy */
+  line-height: 1.6;
+}
+section {
+  padding: 100px 0;
+  min-height: 380px;
+}
+section.jumbotron {
+  padding: 160px 0 120px;
+}
+.flatbox {
+  background-color: #eeeeee;
+  text-align: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.parallax {
+  color: white;
+  padding: 150px 0;
+  background-image: url('https://unsplash.it/1200/800/?image=475&blur');
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+.bg2 {
+  background-image: url('https://unsplash.it/1200/800/?image=504');
+}
+.fixed-side-navbar {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 99999;
+  margin-top: -100px;
+  text-align: right;
+  padding: 30px 0;
+  -webkit-transition: all .3s;
+          transition: all .3s;
+}
+.fixed-side-navbar:hover {
+  background: white;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.fixed-side-navbar:hover .nav > li > a > span {
+  color: rgba(0, 0, 0, 0.5);
+  display: block;
+}
+.fixed-side-navbar .nav > li.active a {
+  background-color: transparent;
+  color: black;
+}
+.fixed-side-navbar .nav > li.active a:after {
+  -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+          transform: scale(0.9);
+}
+.fixed-side-navbar .nav > li.active a:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 17px;
+  margin-top: -8px;
+  width: 16px;
+  height: 16px;
+  background: transparent;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+.fixed-side-navbar .nav > li a {
+  color: black;
+  min-height: 32px;
+  background: transparent;
+  padding: 5px 45px 5px 25px;
+  border-right: none;
+}
+.fixed-side-navbar .nav > li a span {
+  display: none;
+  -webkit-transition: all .2s;
+          transition: all .2s;
+}
+.fixed-side-navbar .nav > li a:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  margin-top: -5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-transition: all .3s;
+          transition: all .3s;
+  -webkit-transform: scale(0.6);
+      -ms-transform: scale(0.6);
+          transform: scale(0.6);
+}
+.fixed-side-navbar .nav > li a:hover {
+  background-color: transparent;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-color: black;
+  boder-right: 0;
+}
+.fixed-side-navbar .nav > li a:hover > span {
+  color: black;
+  display: block;
+}
+footer.footer {
+  line-height: 100px;
+  background-color: #333333;
+  color: #808080;
+  text-align: center;
+}
+.btn-outline {
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  text-shadow: none;
+  padding: 14px 18px;
+  -webkit-transition: all .3s;
+          transition: all .3s;
+  font-size: 16px;
+  font-weight: 200;
+}
+.btn-outline:hover,
+.btn-outline:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.4);
+}
+.btn-outline:active {
+  -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+          transform: scale(0.9);
+}
+.wrap {
+  font-size: 21px;
+  line-height: 1.6;
+  font-weight: 200;
+  text-align: center;
+  max-width: 600px;
+  margin: 30px auto 10px;
+}
+.shadow-text {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+.square {
+  width: 100%;
+  min-height: 400px;
+  background-color: #ccc;
+}
+.container,
+.jumbotron .container {
+  max-width: 970px;
+}
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(30%, 0, 0);
+            transform: translate3d(30%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(30%, 0, 0);
+            transform: translate3d(30%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+.fadeInRight {
+  -webkit-animation-name: fadeInRight;
+          animation-name: fadeInRight;
+}
