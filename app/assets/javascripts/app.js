@@ -1,4 +1,4 @@
-angular.module('photographerNews', ['ui.router','templates'])
+angular.module('photographerNews', ['ui.router','templates', 'Devise'])
 .config([
 '$stateProvider',
 '$urlRouterProvider',
@@ -15,6 +15,28 @@ function($stateProvider, $urlRouterProvider) {
 			  }]
 			}
 		})
+		.state('login', {
+      url: '/login',
+      templateUrl: 'auth/_login.html',
+      controller: 'AuthCtrl',
+      controller: 'AuthCtrl',
+      onEnter: ['$state', 'Auth', function($state, Auth) {
+        Auth.currentUser().then(function (){
+          $state.go('home');
+        })
+      }]
+    })
+    .state('register', {
+      url: '/register',
+      templateUrl: 'auth/_register.html',
+      controller: 'AuthCtrl',
+      controller: 'AuthCtrl',
+      onEnter: ['$state', 'Auth', function($state, Auth) {
+        Auth.currentUser().then(function (){
+          $state.go('home');
+        })
+      }]
+    })
 		.state('elements', {
 			url: '/elements',
 			templateUrl: 'elements/_elements.html',
@@ -41,6 +63,7 @@ function($stateProvider, $urlRouterProvider) {
 			}
 		});
 		// angular ui detects entering posts state and then will automatically query the server for full post object including comments (because how back up is set). only after reuqest is has reutrned will state finish loading. 
+		// on enter users Auth.currentUser() to detect if user exists
 
 		$urlRouterProvider.otherwise('home');
 }]);

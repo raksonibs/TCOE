@@ -38,3 +38,4 @@ end
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'angular_rails_csrf'
+gem 'devise'

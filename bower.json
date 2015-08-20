@@ -18,6 +18,7 @@
     "wow": "~1.1.2",
     "angular-waypoints": "~1.0.1",
     "scrollspy": "~0.1.0",
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "angular-devise": "~1.1.0"
   }
 }
