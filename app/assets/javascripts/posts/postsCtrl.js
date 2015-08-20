@@ -2,9 +2,11 @@ angular.module('photographerNews')
 .controller('PostsCtrl', [
 '$scope',
 'posts',
-'$stateParams',
-function($scope, posts, $stateParams){
-  $scope.post = posts.posts[$stateParams.id];
+'post',
+function($scope, posts, $stateParams, post){
+  $scope.post = posts.post
+  // no longer need state params because config state gets that
+  // get the post for comments though
 
   $scope.addComment = function(){
     if($scope.body === '') { return; }

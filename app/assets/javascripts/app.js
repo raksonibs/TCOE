@@ -3,12 +3,17 @@ angular.module('photographerNews', ['ui.router','templates'])
 '$stateProvider',
 '$urlRouterProvider',
 function($stateProvider, $urlRouterProvider) {
-	
+	// the resolve ensures anytime home state is entering, we query all posts.
 	$stateProvider
 		.state('home', {
 			url: '/home',
 			templateUrl: 'home/_home.html',
-			controller: 'MainCtrl'
+			controller: 'MainCtrl',
+			resolve: {
+			  postPromise: ['posts', function(posts){
+			    return posts.getAll();
+			  }]
+			}
 		})
 		.state('elements', {
 			url: '/elements',
@@ -28,8 +33,14 @@ function($stateProvider, $urlRouterProvider) {
 		.state('posts', {
 			url: '/posts/{id}',
 			templateUrl: 'posts/_posts.html',
-			controller: 'PostsCtrl'
+			controller: 'PostsCtrl',
+			resolve: {
+				post: ['$stateParams', 'posts', function($stateParams, posts) {
+					return posts.get($stateParams.id)
+				}]
+			}
 		});
+		// angular ui detects entering posts state and then will automatically query the server for full post object including comments (because how back up is set). only after reuqest is has reutrned will state finish loading. 
 
 		$urlRouterProvider.otherwise('home');
 }]);

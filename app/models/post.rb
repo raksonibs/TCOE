@@ -1,7 +1,8 @@
 class Post < ActiveRecord::Base
-	has_many :comments
+  has_many :comments
 
-	def as_json(options = {})
-		super(options.merge(include: :comments))
-	end
+  # merge to always include comments in the post, not really important.
+  def as_json(options = {})
+    super(options.merge(include: :comments))
+  end
 end
