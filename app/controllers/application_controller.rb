@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  skip_before_filter :authenticate_user!
 
   respond_to :json
   
