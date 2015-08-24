@@ -26,17 +26,17 @@ function($stateProvider, $urlRouterProvider) {
         })
       }]
     })
-    .state('register', {
-      url: '/register',
-      templateUrl: 'auth/_register.html',
-      controller: 'AuthCtrl',
-      controller: 'AuthCtrl',
-      onEnter: ['$state', 'Auth', function($state, Auth) {
-        Auth.currentUser().then(function (){
-          $state.go('home');
-        })
-      }]
-    })
+    // .state('register', {
+    //   url: '/register',
+    //   templateUrl: 'auth/_register.html',
+    //   controller: 'AuthCtrl',
+    //   controller: 'AuthCtrl',
+    //   onEnter: ['$state', 'Auth', function($state, Auth) {
+    //     Auth.currentUser().then(function (){
+    //       $state.go('home');
+    //     })
+    //   }]
+    // })
 		.state('elements', {
 			url: '/elements',
 			templateUrl: 'elements/_elements.html',
