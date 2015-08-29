@@ -2,7 +2,11 @@ class PostsController < ApplicationController
   before_filter :authenticate_user!, only: [:create, :upvote]
 
   def index
-    respond_with Post.all
+    @posts = Post.all
+    params["format"] = "json"
+    params = {"controller"=>"posts", "action"=>"index", "format"=>"json"}
+    respond_with @posts
+    end
   end
 
   def create

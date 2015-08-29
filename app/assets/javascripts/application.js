@@ -2,6 +2,7 @@
 //= require angular-rails-templates
 //= require angular-ui-router
 //= require angular-devise/lib/devise
+//= require ng-admin/build/ng-admin.min
 //= require classie
 //= require jquery
 //= require jquery_ujs
