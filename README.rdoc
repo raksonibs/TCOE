@@ -2,3 +2,6 @@
 Basically factory for pages, and pages have the content. It is a smart markdown editor(angular js directive) that allows Kacper to preview what he looks at. Each page is indetifed by its slug, so would be rkacperwrite/#/pages/{page_name} or #/page-name.
 
 That is really it, plus two factor authentication, and being able to edit everything. 
+
+- login action redirects to dashboard path of admin screen
+- need to reroute create and all that

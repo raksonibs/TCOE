@@ -1,77 +1,57 @@
 var myApp = angular.module('photographerNews', ['ng-admin']);
 
 myApp.config(['NgAdminConfigurationProvider', function (nga) {
-    var admin = nga.application('My First Admin')
+    var admin = nga.application('TCOE.CO')
       .baseApiUrl('http://localhost:3000/'); // main API endpoint
 
-    // var user = nga.entity('users'); // the API endpoint for users will be 'http://jsonplaceholder.typicode.com/users/:id
-    //     user.listView()
-    //     .fields([
-    //         nga.field('name').isDetailLink(true),
-    //         nga.field('username'),
-    //         nga.field('email')
-    //     ])
-    // user.creationView().fields([
-    //     nga.field('name')
-    //         .validation({ required: true, minlength: 3, maxlength: 100 }),
-    //     nga.field('username')
-    //         .attributes({ placeholder: 'No space allowed, 5 chars min' })
-    //         .validation({ required: true, pattern: '[A-Za-z0-9\.\-_]{5,20}' }),
-    //     nga.field('email', 'email')
-    //         .validation({ required: true }),
-    //     nga.field('address.street')
-    //         .label('Street'),
-    //     nga.field('address.city')
-    //         .label('City'),
-    //     nga.field('address.zipcode')
-    //         .label('Zipcode')
-    //         .validation({ pattern: '[A-Z\-0-9]{5,10}' }),
-    //     nga.field('phone'),
-    //     nga.field('website')
-    //         .validation({ validator: function(value) {
-    //             if (value.indexOf('http://') !== 0) throw new Error ('Invalid url in website');
-    //         } })
-    // ]);
-    // user.editionView().fields(user.creationView().fields());
-    // admin.addEntity(user)
+    var post = nga.entity('posts');
 
-    var post = nga.entity('posts'); // the API endpoint for users will be 'http://jsonplaceholder.typicode.com/users/:id
-    post.readOnly();
+     // the API endpoint for users will be 'http://jsonplaceholder.typicode.com/users/:id
+
     post.listView()
-        .fields([
-            nga.field('title').isDetailLink(true),
-            nga.field('body', 'text')
-                .map(function truncate(value) {
-                    if (!value) return '';
-                    return value.length > 50 ? value.substr(0, 50) + '...' : value;
-                }),
-        ])
-        .listActions(['show'])
-        .batchActions([])
-        .filters([
-            nga.field('q', 'template')
-                .label('')
-                .pinned(true)
-                .template('<div class="input-group"><input type="text" ng-model="value" placeholder="Search" class="form-control"></input><span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span></div>'),
-        ]);
-    post.showView().fields([
-        nga.field('title'),
-        nga.field('body', 'text'),
-        nga.field('comments', 'referenced_list')
-            .targetEntity(nga.entity('comments'))
-            .targetReferenceField('postId')
-            .targetFields([
-                nga.field('email'),
-                nga.field('name')
+            .title('All posts') // default title is "[Entity_name] list"
+            .description('List of posts with infinite pagination') // description appears under the title
+            .infinitePagination(true) // load pages as the user scrolls
+            .fields([
+                nga.field('id').label('id'), // The default displayed name is the camelCase field name. label() overrides id
+                nga.field('title'), // the default list field type is "string", and displays as a string
+                nga.field('published_at', 'date'),  // Date field type allows date formatting                                                
             ])
-            .sortField('id')
-            .sortDir('DESC'),
-    ]);
-    admin.addEntity(post)
+            .listActions(['show', 'edit', 'delete']);
+
+        post.creationView()
+            .fields([
+                nga.field('title') // the default edit field type is "string", and displays as a text input
+                    .attributes({ placeholder: 'the post title' }) // you can add custom attributes, too
+                    .validation({ required: true, minlength: 3, maxlength: 100 }), // add validation rules for fields
+                nga.field('teaser', 'text'), // text field type translates to a textarea
+                nga.field('body', 'wysiwyg'), // overriding the type allows rich text editing for the body
+                nga.field('published_at', 'date') // Date field type translates to a datepicker
+            ]);
+
+
+        post.editionView()
+            .title('Edit post "{{ entry.values.title }}"') // title() accepts a template string, which has access to the entry
+            .actions(['list', 'show', 'delete']) // choose which buttons appear in the top action bar. Show is disabled by default
+            .fields([
+                post.creationView().fields() // fields() without arguments returns the list of fields. That way you can reuse fields from another view to avoid repetition
+                // customize look and feel through CSS classes
+            ]);
+
+        post.showView() // a showView displays one entry in full page - allows to display more data than in a a list
+            .fields([
+                nga.field('id'),
+                post.editionView().fields(), // reuse fields from another view in another order
+                nga.field('custom_action', 'template')
+                    .label('')
+                    .template('<send-email post="entry"></send-email>')
+            ]);
 
     admin.menu(nga.menu()
         .addChild(nga.menu(post).icon('<span class="glyphicon glyphicon-pencil"></span>'))
     );
+
+    admin.addEntity(post)
 
     nga.configure(admin);
 }]);
