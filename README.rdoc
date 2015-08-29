@@ -5,3 +5,16 @@ That is really it, plus two factor authentication, and being able to edit everyt
 
 - login action redirects to dashboard path of admin screen
 - need to reroute create and all that
+<in the header nav>
+{{Page.name}}
+<page.teaser>
+<header>
+
+<nav>
+all the different pages
+</nav>
+
+<div class=body>
+{{page.body}}
+</div>
+

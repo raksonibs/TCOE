@@ -57,6 +57,8 @@ body: "dolore placeat quibusdam ea quo vitae magni quis enim qui quis quo nemo a
   end
 
   def show
+    # both show and edit go here. The save will have to go to an update action
+    # also show when not logged in will have to be a different view
     respond_with Post.find(params[:id])
   end
 
