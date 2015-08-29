@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 	root to: 'application#angular'
 
-  resources :posts, only: [:create, :index, :show] do
+  resources :posts, only: [:create, :index, :show],  defaults: { format: 'json' } do
     resources :comments, only: [:show, :create] do
       # puts to id rather than post_id
       member do

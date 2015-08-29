@@ -1,4 +1,93 @@
-var myApp = angular.module('photographerNews', ['ui.router','templates', 'Devise', 'ng-admin'])
+var myApp = angular.module('photographerNews', ['ng-admin']);
+
+myApp.config(['NgAdminConfigurationProvider', function (nga) {
+    var admin = nga.application('My First Admin')
+      .baseApiUrl('http://localhost:3000/'); // main API endpoint
+
+    var user = nga.entity('users'); // the API endpoint for users will be 'http://jsonplaceholder.typicode.com/users/:id
+        user.listView()
+        .fields([
+            nga.field('name').isDetailLink(true),
+            nga.field('username'),
+            nga.field('email')
+        ])
+    user.creationView().fields([
+        nga.field('name')
+            .validation({ required: true, minlength: 3, maxlength: 100 }),
+        nga.field('username')
+            .attributes({ placeholder: 'No space allowed, 5 chars min' })
+            .validation({ required: true, pattern: '[A-Za-z0-9\.\-_]{5,20}' }),
+        nga.field('email', 'email')
+            .validation({ required: true }),
+        nga.field('address.street')
+            .label('Street'),
+        nga.field('address.city')
+            .label('City'),
+        nga.field('address.zipcode')
+            .label('Zipcode')
+            .validation({ pattern: '[A-Z\-0-9]{5,10}' }),
+        nga.field('phone'),
+        nga.field('website')
+            .validation({ validator: function(value) {
+                if (value.indexOf('http://') !== 0) throw new Error ('Invalid url in website');
+            } })
+    ]);
+    user.editionView().fields(user.creationView().fields());
+    admin.addEntity(user)
+
+    var post = nga.entity('posts'); // the API endpoint for users will be 'http://jsonplaceholder.typicode.com/users/:id
+    post.readOnly();
+    post.listView()
+        .fields([
+            nga.field('title').isDetailLink(true),
+            nga.field('body', 'text')
+                .map(function truncate(value) {
+                    if (!value) return '';
+                    return value.length > 50 ? value.substr(0, 50) + '...' : value;
+                }),
+            nga.field('userId', 'reference')
+                .targetEntity(user)
+                .targetField(nga.field('username'))
+                .label('Author')
+        ])
+        .listActions(['show'])
+        .batchActions([])
+        .filters([
+            nga.field('q', 'template')
+                .label('')
+                .pinned(true)
+                .template('<div class="input-group"><input type="text" ng-model="value" placeholder="Search" class="form-control"></input><span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span></div>'),
+            nga.field('userId', 'reference')
+                .targetEntity(user)
+                .targetField(nga.field('username'))
+                .label('User')
+        ]);
+    post.showView().fields([
+        nga.field('title'),
+        nga.field('body', 'text'),
+        nga.field('userId', 'reference')
+            .targetEntity(user)
+            .targetField(nga.field('username'))
+            .label('User'),
+        nga.field('comments', 'referenced_list')
+            .targetEntity(nga.entity('comments'))
+            .targetReferenceField('postId')
+            .targetFields([
+                nga.field('email'),
+                nga.field('name')
+            ])
+            .sortField('id')
+            .sortDir('DESC'),
+    ]);
+    admin.addEntity(post)
+
+    admin.menu(nga.menu()
+        .addChild(nga.menu(user).icon('<span class="glyphicon glyphicon-user"></span>'))
+        .addChild(nga.menu(post).icon('<span class="glyphicon glyphicon-pencil"></span>'))
+    );
+
+    nga.configure(admin);
+}]);
 
 myApp.config(['RestangularProvider', function (RestangularProvider) {
     RestangularProvider.addFullRequestInterceptor(function(element, operation, what, url, headers, params) {
@@ -27,91 +116,4 @@ myApp.config(['RestangularProvider', function (RestangularProvider) {
         }
         return { params: params };
     });
-}]);
-
-myApp.config([
-'$stateProvider',
-'$urlRouterProvider',
-'NgAdminConfigurationProvider',
-function($stateProvider, $urlRouterProvider, nga) {
-	// the resolve ensures anytime home state is entering, we query all posts.
-
-	$stateProvider
-		.state('home', {
-			url: '/home',
-			templateUrl: 'home/_home.html',
-			controller: 'MainCtrl',
-			resolve: {
-			  postPromise: ['posts', function(posts){
-			    return posts.getAll();
-			  }]
-			}
-		})
-		.state('login', {
-      url: '/login',
-      templateUrl: 'auth/_login.html',
-      controller: 'AuthCtrl',
-      controller: 'AuthCtrl',
-      onEnter: ['$state', 'Auth', function($state, Auth) {
-        Auth.currentUser().then(function (){
-          $state.go('home');
-        })
-      }]
-    })
-    // .state('register', {
-    //   url: '/register',
-    //   templateUrl: 'auth/_register.html',
-    //   controller: 'AuthCtrl',
-    //   controller: 'AuthCtrl',
-    //   onEnter: ['$state', 'Auth', function($state, Auth) {
-    //     Auth.currentUser().then(function (){
-    //       $state.go('home');
-    //     })
-    //   }]
-    // })
-		.state('elements', {
-			url: '/elements',
-			templateUrl: 'elements/_elements.html',
-			controller: 'elementsCtrl'
-		})
-		.state('personal', {
-			url: '/personal',
-			templateUrl: 'personal/_personal.html',
-			controller: 'personalCtrl'
-		})
-		.state('about', {
-			url: '/about',
-			templateUrl: 'about/_about.html',
-			controller: 'aboutCtrl'
-		})
-		.state('posts', {
-			url: '/posts/{id}',
-			templateUrl: 'posts/_posts.html',
-			controller: 'PostsCtrl',
-			resolve: {
-				post: ['$stateParams', 'posts', function($stateParams, posts) {
-					return posts.get($stateParams.id)
-				}]
-			}
-		});
-		// angular ui detects entering posts state and then will automatically query the server for full post object including comments (because how back up is set). only after reuqest is has reutrned will state finish loading. 
-		// on enter users Auth.currentUser() to detect if user exists
-
-		$urlRouterProvider.otherwise('dashboard');
-
-    var admin = nga.application('My First Admin')
-      .baseApiUrl('http://localhost:3000/'); // main API endpoint
-    // create a user entity
-    // the API endpoint for this entity will be 'http://jsonplaceholder.typicode.com/users/:id
-    var post = nga.entity('posts');
-        post.listView().fields([
-            nga.field('id'),
-            nga.field('title'),
-            nga.field('link'),
-            nga.field('upvotes'),
-
-        ]);
-        admin.addEntity(post)
-    // attach the admin application to the DOM and execute it
-    nga.configure(admin);
 }]);
