@@ -476,6 +476,13 @@ What is important to note, however, is that he wrote what he knew. He wrote abou
 If not, you are an equally interesting subject. You can play with your life, changing one thing or another. Maybe you identify as a boy. Don't for a moment. See that? Feel it? No? Try again. Can't? Good. You are failing. Again. 
 
 Write about being a girl imagining yourself in your earliest memory and then when you were seven. What are you doing? What are you wearing? What do you want to wear? A dress of spider's silk? A dress of silky spiders? Have you at your earliest, all gurgly and blubbery, and have a conversation with your now seven-year-old girl self. Maybe over tea, though that'd be stereotypical and unoriginal. Maybe it's still nonetheless true. I don't know. You do. Let us find out."
-}])
+},
+{
+  title: 'The Chemical',
+  teaser: 'Made From Chemicals',
+  body: "Kacper is a twenty something year old pretending he's thirty who writes like he's fifty about things that happened when he was ten. By the time he dies, he hopes to scribble off the end of his tenth birthday. Maybe then he will also learn how to write what he wanted to say in the first place. He may have to go back, erase everything, and write this: fartnugget. It's a beautiful word, he thinks.
+
+He sneezes out stories and poems at Mizpellt Wurdz, writes on a barrage of nonfiction platforms, and has a starving selection of self-published works: Spaghetti Knots and Love you madly. He also flat-lines punchlines at badcomcs.ca."
+  }])
 
 # User.create({email: 'kacperniburski@gmail.com', password: 'testtest', password_confirmation: 'testtest'})
