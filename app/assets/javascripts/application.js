@@ -25,7 +25,6 @@ var headingSize = windowWidth*0.1;
 
 // Event Listening
 navTrigger.addEventListener('click', navToggle);
-window.addEventListener('resize', resize);
 
 
 function navToggle(e) {
@@ -39,6 +38,5 @@ function navToggle(e) {
   }
 }
 
-// window.onload = resize;
 
 })
