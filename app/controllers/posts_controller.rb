@@ -17,18 +17,19 @@ class PostsController < ApplicationController
   def show
     # both show and edit go here. The save will have to go to an update action
     # also show when not logged in will have to be a different view
-    respond_with Post.find(params[:id])
+    respond_with Post.friendly.find(params[:id])
   end
 
-  def upvote
-    post = Post.find(params[:id])
-    post.increment!(:upvotes)
+  def update
+    @post = Post.find(params[:id])
 
-    respond_with post
+    @post.update_attributes(post_params)
+
+    respond_with @post
   end
 
   private
   def post_params
-    params.require(:post).permit(:link, :title)
+    params.require(:post).permit(:title, :body, :published_at, :id, :link, :created_at, :posted_at, :teaser, :slug)
   end
 end
