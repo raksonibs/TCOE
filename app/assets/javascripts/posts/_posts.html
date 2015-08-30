@@ -1,31 +1,24 @@
-<div class="page-header">
-  <h3>
-    <a ng-show="post.link" href="{{post.link}}">
-      {{post.title}}
-    </a>
-    <span ng-hide="post.link">
-      {{post.title}}
-    </span>
-  </h3>
-</div>
+<!-- NTD: why isn't this working in application.html? Could in the render use @post first or something -->
+  <header class="intro-header">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+                  <div class="site-heading">
+                      <h1>{{thisPost.title}}</h1>
+                      <hr class="small">
+                      <span class="subheading">{{thisPost.teaser}}</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </header>
 
-<div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
-  <span class="glyphicon glyphicon-thumbs-up"
-  ng-click="incrementUpvotes(comment)"></span>
-  {{comment.upvotes}} - by {{comment.author}}
-  <span style="font-size:20px; margin-left:10px;">
-    {{comment.body}}
-  </span>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+      <span style="font-size:20px; margin-left:10px;" ng-bind-html='toTrustedHTML( thisPost.body )'>
+      </span>
+      {{thisPost.body}}
+    </div>
+  </div>
 </div>
-<form ng-submit="addComment()"
-style="margin-top:30px;">
-<h3>Add a new comment</h3>
-
-<div class="form-group">
-  <input type="text"
-  class="form-control"
-  placeholder="Comment"
-  ng-model="body"></input>
-</div>
-<button type="submit" class="btn btn-primary">Post</button>
-</form>

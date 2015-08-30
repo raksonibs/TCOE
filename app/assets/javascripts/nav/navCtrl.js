@@ -2,9 +2,12 @@ angular.module('photographerNews')
 .controller('NavCtrl', [
 '$scope',
 'Auth',
-function($scope, Auth){
+'posts',
+function($scope, Auth, posts){
   $scope.signedIn = Auth.isAuthenticated;
   $scope.logout = Auth.logout;
+
+  $scope.postsAll = posts.posts
 
   Auth.currentUser().then(function (user){
     $scope.user = user;

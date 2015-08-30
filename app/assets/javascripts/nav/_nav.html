@@ -1,9 +1,17 @@
 <div class="collapse navbar-collapse pull-right" ng-controller="NavCtrl">
   <ul class="nav navbar-nav">
-    <li><a href="#/home">Home</a></li>
-    <li ng-hide="signedIn()"><a href="#/login">Log In</a></li>
-    <li ng-show="signedIn()"><a href="#/">{{ user.email }}</a></li>
-    <li ng-show="signedIn()"><a href="#/dashboard">Dashboard</a></li>
-    <li ng-show="signedIn()"><a ng-click="logout()">Log Out</a></li>
+
+    <div class="repeat" ng-repeat="post in postsAll | orderBy:'created_at'">
+      <li><a href="#/posts/{{post.id}}">{{post.title}}</a></li>
+    </div>
+
+
+    <div ng-show="signedIn()">
+      <li><a href="#/home">Home</a></li>
+      <!-- <li ng-hide="signedIn()"><a href="#/login">Log In</a></li> -->
+      <!-- <li ng-show="signedIn()"><a href="#/">{{ user.email }}</a></li> -->
+      <li ng-show="signedIn()"><a href="#/dashboard">Dashboard</a></li>
+      <li ng-show="signedIn()"><a ng-click="logout()">Log Out</a></li>
+    </div>
   </ul>
 </div>

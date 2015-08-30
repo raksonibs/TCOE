@@ -14,6 +14,8 @@ function($scope, posts, $location, $sce){
 
   $scope.showPageHero = $location.path() !== '/dashboard'
 
+  // $scope.postsAll = posts.posts
+
   $scope.toTrustedHTML = function( html ) {
     return $sce.trustAsHtml( html );
   }

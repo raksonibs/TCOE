@@ -36,18 +36,18 @@ post.listView()
                 // customize look and feel through CSS classes
             ]);
 
-        post.showView() // a showView displays one entry in full page - allows to display more data than in a a list
-            .fields([
-                nga.field('id'),
-                post.editionView().fields(), // reuse fields from another view in another order
-                nga.field('custom_action', 'template')
-                    .label('')
-                    .template('<send-email post="entry"></send-email>')
-            ]);
+        // post.showView() // a showView displays one entry in full page - allows to display more data than in a a list
+        //     .fields([
+        //         nga.field('id'),
+        //         post.editionView().fields(), // reuse fields from another view in another order
+        //         nga.field('custom_action', 'template')
+        //             .label('')
+        //             .template('<send-email post="entry"></send-email>')
+        //     ]);
 
     admin.menu(nga.menu()
         .addChild(nga.menu(post).icon('<span class="glyphicon glyphicon-pencil"></span>'))
-        .addChild(nga.menu().icon('<span>Main Site</span>'))
+        .addChild(nga.menu().icon('<span><a href="#/home/">Main Site</a></span>'))
     );
 
     admin.addEntity(post)
@@ -64,35 +64,22 @@ post.listView()
    resolve: {
      postPromise: ['posts', function(posts){
        return posts.getFirst();
+     }],
+     allPostsPromise: ['posts', function(posts) {
+      return posts.getAll();
      }]
    }
  })
  .state('login', {
-  url: '/login',
-  templateUrl: 'auth/_login.html',
-  controller: 'AuthCtrl',
-  controller: 'AuthCtrl',
-  onEnter: ['$state', 'Auth', function($state, Auth) {
-    Auth.currentUser().then(function (){
-      $state.go('home');
-    })
-  }]
-})
-    // .state('register', {
-    //   url: '/register',
-    //   templateUrl: 'auth/_register.html',
-    //   controller: 'AuthCtrl',
-    //   controller: 'AuthCtrl',
-    //   onEnter: ['$state', 'Auth', function($state, Auth) {
-    //     Auth.currentUser().then(function (){
-    //       $state.go('home');
-    //     })
-    //   }]
-    // })
-  .state('elements', {
-   url: '/elements',
-   templateUrl: 'elements/_elements.html',
-   controller: 'elementsCtrl'
+    url: '/login',
+    templateUrl: 'auth/_login.html',
+    controller: 'AuthCtrl',
+    controller: 'AuthCtrl',
+    onEnter: ['$state', 'Auth', function($state, Auth) {
+      Auth.currentUser().then(function (){
+        $state.go('home');
+      })
+    }]
   })
   .state('personal', {
    url: '/personal',
@@ -105,19 +92,17 @@ post.listView()
    controller: 'aboutCtrl'
   })
   .state('posts', {
-   url: '/posts/{id}',
-   templateUrl: 'posts/_posts.html',
-   controller: 'PostsCtrl',
-   resolve: {
-     post: ['$stateParams', 'posts', function($stateParams, posts) {
-       return posts.get($stateParams.id)
-     }]
-   }
-});
-               // angular ui detects entering posts state and then will automatically query the server for full post object including comments (because how back up is set). only after reuqest is has reutrned will state finish loading. 
-               // on enter users Auth.currentUser() to detect if user exists
+     url: '/posts/{id}',
+     templateUrl: 'posts/_posts.html',
+     controller: 'PostsCtrl',
+     resolve: {
+       post: ['$stateParams', 'posts', function($stateParams, posts) {
+         return posts.get($stateParams.id)
+       }]
+     }
+  });
 
-   $urlRouterProvider.otherwise('home');
+ $urlRouterProvider.otherwise('home');
 
  }]);
 

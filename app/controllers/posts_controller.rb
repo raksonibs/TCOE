@@ -19,7 +19,9 @@ class PostsController < ApplicationController
   def show
     # both show and edit go here. The save will have to go to an update action
     # also show when not logged in will have to be a different view
-    respond_with Post.friendly.find(params[:id])
+    # binding.pry
+    @post = Post.friendly.find(params[:id])
+    respond_with @post
   end
 
   def update

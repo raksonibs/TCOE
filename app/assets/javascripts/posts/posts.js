@@ -3,7 +3,7 @@ angular.module('photographerNews')
 '$http',
 function($http){
 	var o = {
-		posts: [{title:"hey",upvotes:123}]
+		posts: []
 	};
 	o.getAll = function() {
 		return $http.get('/posts.json').success(function(data) {
@@ -30,7 +30,8 @@ function($http){
 	}
 
 	o.get = function(id) {
-		return $http.get('/posts' + id +'.json').then(function(res) {
+		return $http.get('/posts/' + id +'.json').then(function(res) {
+			// angular.copy(res.data, o.posts);
 			return res.data
 		})
 	}
