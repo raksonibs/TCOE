@@ -2,7 +2,7 @@ Post.destroy_all
 # User.destroy_all
 
 Post.create([{
-title: "A Writing Workshop",
+title: "A Workshop",
 teaser: "TO A CHEMIST, NOTHING ON EARTH IS UNCLEAN. A WRITER MUST BE AS OBJECTIVE AS A CHEMIST. ANTON CHEKOV",
 body: "The Niburski Synthesis
 
