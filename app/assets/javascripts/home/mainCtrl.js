@@ -3,15 +3,20 @@ angular.module('photographerNews')
 '$scope',
 'posts',
 '$location',
-function($scope, posts, $location){
+'$sce',
+function($scope, posts, $location, $sce){
 
   $scope.posts = posts.posts;
 
   $scope.thisPost = posts.posts[0];
 
+  $scope.postBody =  posts.posts[0].body;
+
   $scope.showPageHero = $location.path() !== '/dashboard'
 
-  console.log($scope)
+  $scope.toTrustedHTML = function( html ) {
+    return $sce.trustAsHtml( html );
+  }
 
   $scope.addPost = function(){
     if(!$scope.title || $scope.title === ''){ return; }
