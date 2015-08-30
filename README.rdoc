@@ -18,3 +18,5 @@ all the different pages
 {{page.body}}
 </div>
 
+
+-> need to make a page home page maybe, the first page they get to, right now a boolean perhaps that you flag as the home or something in the post and then we search for it?

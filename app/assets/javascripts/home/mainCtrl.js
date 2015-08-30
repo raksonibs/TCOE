@@ -7,7 +7,7 @@ function($scope, posts, $location){
 
   $scope.posts = posts.posts;
 
-  $scope.showPageHero = $location.path() === '/dashboard'
+  $scope.showPageHero = $location.path() !== '/dashboard'
 
   console.log($scope)
 

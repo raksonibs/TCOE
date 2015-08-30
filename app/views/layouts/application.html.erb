@@ -19,11 +19,12 @@
 <body ng-app="photographerNews">
 
 <!-- ng show if dashboard, ng not show if not -->
-      <!-- <div ng-include="'nav/_nav.html'"></div> -->
+      <div ng-include="'nav/_nav.html'"></div>
 
     <!-- Page Header -->
   <!-- Set your background image for this header on the line below. -->
-  <header class="intro-header" ng-if="showPageHero">
+  <div ng-hide="showPageHero">
+  <header class="intro-header">
       <div class="container">
           <div class="row">
               <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
@@ -36,11 +37,12 @@
           </div>
       </div>
   </header>
+  </div>
     
     <!-- ui view -->
     <ui-view></ui-view>
     <!-- Footer -->
-  <!--<footer>
+  <footer>
       <div class="container">
           <div class="row">
               <div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -74,7 +76,7 @@
               </div>
           </div>
       </div>
-  </footer> -->
+  </footer> 
 
 </body>
 </html>
