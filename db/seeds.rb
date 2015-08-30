@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Post.destroy_all
+User.destroy_all
 
 Post.create([{
 title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
@@ -43,3 +44,5 @@ title: "magnam facilis autem",
 teaser: "Ut ad consequatur esse illum. Ex dolore porro et ut sit. Commodi qui sed et voluptatibus laudantium.",
 body: "dolore placeat quibusdam ea quo vitae magni quis enim qui quis quo nemo aut saepe quidem repellat excepturi ut quia sunt ut sequi eos ea sed quas"
 }])
+
+User.create({email: 'kacperniburski@gmail.com', password: 'test', password_confirmation: 'test'})

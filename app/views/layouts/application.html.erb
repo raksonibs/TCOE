@@ -16,14 +16,6 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<!-- <body ng-app="photographerNews">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <ui-view></ui-view>
-    </div>
-  </div>
-
-</body> -->
 <body ng-app="photographerNews">
 
 <!-- ng show if dashboard, ng not show if not -->
@@ -31,7 +23,7 @@
 
     <!-- Page Header -->
   <!-- Set your background image for this header on the line below. -->
-<!--   <header class="intro-header">
+  <header class="intro-header" ng-if="showPageHero">
       <div class="container">
           <div class="row">
               <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
@@ -43,7 +35,7 @@
               </div>
           </div>
       </div>
-  </header> -->
+  </header>
     
     <!-- ui view -->
     <ui-view></ui-view>
