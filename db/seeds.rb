@@ -1,5 +1,5 @@
 Post.destroy_all
-# User.destroy_all
+User.destroy_all
 
 Post.create([{
 title: "A Workshop",
@@ -485,4 +485,4 @@ Write about being a girl imagining yourself in your earliest memory and then whe
 He sneezes out stories and poems at Mizpellt Wurdz, writes on a barrage of nonfiction platforms, and has a starving selection of self-published works: Spaghetti Knots and Love you madly. He also flat-lines punchlines at badcomcs.ca."
   }])
 
-# User.create({email: 'kacperniburski@gmail.com', password: 'testtest', password_confirmation: 'testtest'})
+User.create({email: 'kacperniburski@gmail.com', password: 'testtest', password_confirmation: 'testtest'})

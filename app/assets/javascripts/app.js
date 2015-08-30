@@ -3,7 +3,7 @@ var myApp = angular.module('photographerNews', ['ui.router','templates', 'Devise
 myApp.config(['$stateProvider','$urlRouterProvider','NgAdminConfigurationProvider', function($stateProvider, $urlRouterProvider, nga) {
 
 var admin = nga.application('TCOE.CO')
-      .baseApiUrl('http://localhost:3000/'); // main API endpoint
+      .baseApiUrl('https://safe-plains-7107.herokuapp.com/'); // main API endpoint
 
     var post = nga.entity('posts');
 post.listView()
