@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
+ruby "2.1.4"
+
 gem 'responders'
 gem 'angular-rails-templates'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -35,6 +35,8 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'rails_12factor', group: :production
+
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'angular_rails_csrf'
@@ -42,3 +44,4 @@ gem 'devise'
 gem 'pry'
 gem 'friendly_id', '~> 5.1.0'
 gem 'bourbon'
+gem 'pg'
