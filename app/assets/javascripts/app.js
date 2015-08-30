@@ -54,6 +54,8 @@ post.listView()
 
     nga.configure(admin);
 
+// getall will be for the nav
+
  $stateProvider
  .state('home', {
    url: '/home',
@@ -61,7 +63,7 @@ post.listView()
    controller: 'MainCtrl',
    resolve: {
      postPromise: ['posts', function(posts){
-       return posts.getAll();
+       return posts.getFirst();
      }]
    }
  })

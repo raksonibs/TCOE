@@ -7,6 +7,8 @@ function($scope, posts, $location){
 
   $scope.posts = posts.posts;
 
+  $scope.thisPost = posts.posts[0];
+
   $scope.showPageHero = $location.path() !== '/dashboard'
 
   console.log($scope)

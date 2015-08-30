@@ -11,6 +11,12 @@ function($http){
 			angular.copy(data, o.posts);
 		});
 	};
+	o.getFirst = function() {
+		return $http.get('/posts/first.json').success(function(data) {
+			// angular copys the json data to the o posts client object. so this changes.
+			angular.copy(data, o.posts);
+		});
+	};
 	o.create = function() {
 		return $http.post('/posts.json', post).success(function(data){
 			o.posts.push(data);

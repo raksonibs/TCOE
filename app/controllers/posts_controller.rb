@@ -3,11 +3,13 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    respond_with @posts
+  end
 
+  def first
+    @post = Post.first
 
-    # respond_to do |format| 
-      respond_with @posts
-    # end
+    respond_with [@post]
   end
 
   def create
