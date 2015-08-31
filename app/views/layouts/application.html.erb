@@ -18,6 +18,7 @@
 </head>
 <body ng-app="photographerNews">
 
+
 <!-- ng show if dashboard, ng not show if not -->
       <div ng-include="'nav/_nav.html'"></div>
 
@@ -57,7 +58,16 @@
                           </a>
                       </li>
                   </ul>
+                  <div class="footer-links" ng-hide="signedIn()">
+                    
+                  
                   <p class="copyright text-muted">Copyright &copy; 2015</p>
+                  <p><a href="#/home">Home</a></p>
+                  <p ng-hide="signedIn()"><a href="#/login">Log In</a></p>
+                  <p ng-show="signedIn()"><a href="#/">{{ user.email }}</a></p>
+                  <p ng-show="signedIn()"><a href="#/dashboard">Dashboard</a></p>
+                  <p ng-show="signedIn()"><a ng-click="logout()">Log Out</a></p>
+                  </div>
               </div>
           </div>
       </div>

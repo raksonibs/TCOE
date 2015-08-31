@@ -1,9 +1,88 @@
 var myApp = angular.module('photographerNews', ['ui.router','templates', 'Devise', 'ng-admin']);
 
-myApp.config(['$stateProvider','$urlRouterProvider','NgAdminConfigurationProvider', function($stateProvider, $urlRouterProvider, nga) {
 
-var admin = nga.application('TCOE.CO')
-      .baseApiUrl('https://safe-plains-7107.herokuapp.com/'); // main API endpoint
+// myApp.run(['Restangular', '$location', function(Restangular, $location){
+//     // ==== CODE TO DO 401 NOT LOGGED IN CHECKING
+//     //This code will intercept 401 unauthorized errors returned from web requests.
+//     //On default any 401 will make the app think it is not logged in.
+//     Restangular.setErrorInterceptor(function(response, deferred, responseHandler) {
+//         if(response.status === 401){
+//             $location.path('/home');
+//             return false;
+//         }
+//     });
+// }]);
+
+myApp.config(['$stateProvider','$urlRouterProvider','NgAdminConfigurationProvider','RestangularProvider', function($stateProvider, $urlRouterProvider, nga, RestangularProvider) {
+
+  $stateProvider
+ .state('home', {
+   url: '/home',
+   templateUrl: 'home/_home.html',
+   controller: 'MainCtrl',
+   resolve: {
+     postPromise: ['posts', function(posts){
+       return posts.getFirst();
+     }],
+     allPostsPromise: ['posts', function(posts) {
+      return posts.getAll();
+     }]
+   }
+ })
+ .state('login', {
+    url: '/login',
+    templateUrl: 'auth/_login.html',
+    controller: 'AuthCtrl',
+    onEnter: ['$state', 'Auth', function($state, Auth) {
+      Auth.currentUser().then(function (){
+        $state.go('home');
+      })
+    }]
+  })
+  .state('posts', {
+     url: '/posts/{id}',
+     templateUrl: 'posts/_posts.html',
+     controller: 'PostsCtrl',
+     resolve: {
+       post: ['$stateParams', 'posts', function($stateParams, posts) {
+         return posts.get($stateParams.id)
+       }]
+     }
+  });
+
+ $urlRouterProvider.otherwise('home');
+
+
+    RestangularProvider.addFullRequestInterceptor(function(element, operation, what, url, headers, params) {
+    if (operation == "getList") {
+            // custom pagination params
+            if (params._page) {
+              params._start = (params._page - 1) * params._perPage;
+              params._end = params._page * params._perPage;
+            }
+            delete params._page;
+            delete params._perPage;
+            // custom sort params
+            if (params._sortField) {
+              params._sort = params._sortField;
+              params._order = params._sortDir;
+              delete params._sortField;
+              delete params._sortDir;
+            }
+            // custom filters
+            if (params._filters) {
+              for (var filter in params._filters) {
+                params[filter] = params._filters[filter];
+              }
+              delete params._filters;
+            }
+          }
+          return { params: params };
+        });
+
+     var admin = nga.application('TCOE.CO')
+      .baseApiUrl('http://localhost:3000/'); // main API endpoint
+
 
     var post = nga.entity('posts');
 post.listView()
@@ -36,15 +115,6 @@ post.listView()
                 // customize look and feel through CSS classes
             ]);
 
-        // post.showView() // a showView displays one entry in full page - allows to display more data than in a a list
-        //     .fields([
-        //         nga.field('id'),
-        //         post.editionView().fields(), // reuse fields from another view in another order
-        //         nga.field('custom_action', 'template')
-        //             .label('')
-        //             .template('<send-email post="entry"></send-email>')
-        //     ]);
-
     admin.menu(nga.menu()
         .addChild(nga.menu(post).icon('<span class="glyphicon glyphicon-pencil"></span>'))
         .addChild(nga.menu().icon('<span><a href="#/home/">Main Site</a></span>'))
@@ -54,83 +124,4 @@ post.listView()
 
     nga.configure(admin);
 
-// getall will be for the nav
-
- $stateProvider
- .state('home', {
-   url: '/home',
-   templateUrl: 'home/_home.html',
-   controller: 'MainCtrl',
-   resolve: {
-     postPromise: ['posts', function(posts){
-       return posts.getFirst();
-     }],
-     allPostsPromise: ['posts', function(posts) {
-      return posts.getAll();
-     }]
-   }
- })
- .state('login', {
-    url: '/login',
-    templateUrl: 'auth/_login.html',
-    controller: 'AuthCtrl',
-    controller: 'AuthCtrl',
-    onEnter: ['$state', 'Auth', function($state, Auth) {
-      Auth.currentUser().then(function (){
-        $state.go('home');
-      })
-    }]
-  })
-  .state('personal', {
-   url: '/personal',
-   templateUrl: 'personal/_personal.html',
-   controller: 'personalCtrl'
-  })
-  .state('about', {
-   url: '/about',
-   templateUrl: 'about/_about.html',
-   controller: 'aboutCtrl'
-  })
-  .state('posts', {
-     url: '/posts/{id}',
-     templateUrl: 'posts/_posts.html',
-     controller: 'PostsCtrl',
-     resolve: {
-       post: ['$stateParams', 'posts', function($stateParams, posts) {
-         return posts.get($stateParams.id)
-       }]
-     }
-  });
-
- $urlRouterProvider.otherwise('home');
-
  }]);
-
-myApp.config(['RestangularProvider', function (RestangularProvider) {
-  RestangularProvider.addFullRequestInterceptor(function(element, operation, what, url, headers, params) {
-    if (operation == "getList") {
-            // custom pagination params
-            if (params._page) {
-              params._start = (params._page - 1) * params._perPage;
-              params._end = params._page * params._perPage;
-            }
-            delete params._page;
-            delete params._perPage;
-            // custom sort params
-            if (params._sortField) {
-              params._sort = params._sortField;
-              params._order = params._sortDir;
-              delete params._sortField;
-              delete params._sortDir;
-            }
-            // custom filters
-            if (params._filters) {
-              for (var filter in params._filters) {
-                params[filter] = params._filters[filter];
-              }
-              delete params._filters;
-            }
-          }
-          return { params: params };
-        });
-}]);
