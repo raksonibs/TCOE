@@ -5,16 +5,5 @@ Rails.application.routes.draw do
   get 'posts/first' => 'posts#first',  defaults: { format: 'json' }
   get 'pages/:post_id' => 'posts#show_post',  defaults: { format: 'json' }
 
-  resources :posts, only: [:create, :index, :show, :update],  defaults: { format: 'json' } do
-    resources :comments, only: [:show, :create] do
-      # puts to id rather than post_id
-      member do
-        put '/upvote' => 'comments#upvote'
-      end
-    end
-
-    member do
-      put '/upvote' => 'posts#upvote'
-    end
-  end
+  resources :posts, only: [:create, :index, :show, :update],  defaults: { format: 'json' }
 end

@@ -1,17 +1,30 @@
 var myApp = angular.module('photographerNews', ['ui.router','templates', 'Devise', 'ng-admin']);
 
 
-// myApp.run(['Restangular', '$location', function(Restangular, $location){
-//     // ==== CODE TO DO 401 NOT LOGGED IN CHECKING
-//     //This code will intercept 401 unauthorized errors returned from web requests.
-//     //On default any 401 will make the app think it is not logged in.
-//     Restangular.setErrorInterceptor(function(response, deferred, responseHandler) {
-//         if(response.status === 401){
-//             $location.path('/home');
-//             return false;
-//         }
-//     });
-// }]);
+myApp.run(['Restangular', '$location', 'Auth', function(Restangular, $location, Auth){
+    // ==== CODE TO DO 401 NOT LOGGED IN CHECKING
+    //This code will intercept 401 unauthorized errors returned from web requests.
+    //On default any 401 will make the app think it is not logged in.
+    console.log(Auth.isAuthenticated())
+    if (Auth.isAuthenticated()) {      
+    } else {            
+      $location.path('/home');
+      return false;
+    }
+}]);
+
+    myApp.run(['Restangular', '$location', function(Restangular, $location){
+        // ==== CODE TO DO 401 NOT LOGGED IN CHECKING
+        //This code will intercept 401 unauthorized errors returned from web requests.
+        //On default any 401 will make the app think it is not logged in.
+
+        Restangular.setErrorInterceptor(function(response, deferred, responseHandler) {          
+            if(response.status === 401){
+                $location.path('/login');
+                return false;
+            }
+        });
+    }]);
 
 myApp.config(['$stateProvider','$urlRouterProvider','NgAdminConfigurationProvider','RestangularProvider', function($stateProvider, $urlRouterProvider, nga, RestangularProvider) {
 
