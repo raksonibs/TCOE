@@ -2,8 +2,12 @@ class PostsController < ApplicationController
   before_filter :authenticate_user!, only: [:create, :edit, :update, :delete]
 
   def index
-    @posts = Post.all
-    respond_with @posts
+    if current_user
+      @posts = Post.all
+    else
+      @posts = []
+      respond_with status: 401
+    end
   end
 
   def first
@@ -15,6 +19,11 @@ class PostsController < ApplicationController
   def create
     respond_with Post.create(post_params)
   end
+
+  # def logout_route
+  #   sign_out current_user
+  #   respond_with []
+  # end
 
   def show
     # both show and edit go here. The save will have to go to an update action

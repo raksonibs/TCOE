@@ -20,6 +20,7 @@ myApp.run(['Restangular', '$location', 'Auth', function(Restangular, $location, 
 
         Restangular.setErrorInterceptor(function(response, deferred, responseHandler) {          
             if(response.status === 401){
+              console.log('401')
                 $location.path('/login');
                 return false;
             }

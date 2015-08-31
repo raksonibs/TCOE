@@ -16,6 +16,8 @@ function($scope, posts, $location, $sce){
 
   $scope.postsAll = posts.getAll()
 
+    $scope.user = {};
+
   // $scope.postsAll = posts.posts
 
   $scope.toTrustedHTML = function( html ) {
