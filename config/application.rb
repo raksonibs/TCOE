@@ -23,6 +23,17 @@ module PhotographerNews
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
+    config.middleware.insert_before "ActionDispatch::Static", "Rack::Cors" do
+    allow do
+        origins '*'
+        resource '*',
+            headers: :any,
+            methods: [:get, :post, :delete, :put, :patch, :options, :head],
+            max_age: 0,
+            expose: :location
+        end
+    end
+
     config.action_dispatch.default_headers = {
     'Access-Control-Allow-Origin' => ' https://safe-plains-7107.herokuapp.com',
     'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
