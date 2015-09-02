@@ -28,3 +28,5 @@ all the different pages
 - if user logged in, can see a nav at top which says edit this page, then go to edit page, that makes sense rather than all the hand waving stuff.
 
 - sometimes scope breaks, not sure why.
+
+- build with angular 1.3 right now, finish it easy peasy, then use angular 2.0 and write about it.
