@@ -26,3 +26,5 @@ all the different pages
 -> need to add image on the about me page.
 
 - if user logged in, can see a nav at top which says edit this page, then go to edit page, that makes sense rather than all the hand waving stuff.
+
+- sometimes scope breaks, not sure why.

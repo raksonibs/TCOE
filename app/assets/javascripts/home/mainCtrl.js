@@ -6,15 +6,15 @@ angular.module('photographerNews')
 '$sce',
 function($scope, posts, $location, $sce){
 
+  // $scope.postsAll = posts.getAll()
+
   $scope.posts = posts.posts;
 
   $scope.thisPost = posts.posts[0];
 
+  $scope.firstId = $scope.thisPost.id
+
   $scope.postBody =  posts.posts[0].body;
-
-  $scope.postsAll = posts.getAll()
-
-  $scope.user = {};
 
   // $scope.postsAll = posts.posts
 
@@ -31,6 +31,16 @@ function($scope, posts, $location, $sce){
     $scope.title = '';
     $scope.link = '';
   };
+
+  $scope.updatePost = function(post) {
+    // need to limit to post
+    posts.update({
+      id: $scope.thisPost.id,
+      title: $scope.thisPost.title,
+      teaser: $scope.thisPost.teaser,
+      body: $scope.thisPost.body
+    })
+  }
 
   $scope.incrementUpvotes = function(post){
     post.upvote(post);

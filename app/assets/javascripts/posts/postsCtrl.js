@@ -20,8 +20,10 @@ function($scope, post, $location, posts){
 
   $scope.updatePost = function(post) {
     // need to limit to post
-    post.title = $scope.title
-    post.body = $scope.body
-    post.teaser = $scope.teaser
+    posts.update({
+      title: post.title,
+      teaser: post.teaser,
+      body: post.body
+    })
   }
 }]);

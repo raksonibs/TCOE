@@ -1,17 +1,19 @@
 <!-- NTD: why isn't this working in application.html? Could in the render use @post first or something -->
-  <header class="intro-header">
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
-                  <div class="site-heading">
-                      <h1>{{thisPost.title}}</h1>
-                      <hr class="small">
-                      <span class="subheading">{{thisPost.teaser}}</span>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </header>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <div class="site-heading">                    
+                    <a ng-click="updatePost(thisId)">Update Post</a>
+                    <h1>{{thisPost.title}}</h1>
+                    <hr class="small">
+                    <span class="subheading">{{thisPost.teaser}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
 
 <div class="container">
   <div class="row">

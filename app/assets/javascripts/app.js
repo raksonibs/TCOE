@@ -9,10 +9,7 @@ $stateProvider
    templateUrl: 'home/_home.html',
    controller: 'MainCtrl',
    resolve: {
-     postPromise: ['posts', function(posts){
-       return posts.getFirst();
-     }],
-     allPostsPromise: ['posts', function(posts) {
+     postPromise: ['posts', function(posts) {
       return posts.getAll();
      }]
    }

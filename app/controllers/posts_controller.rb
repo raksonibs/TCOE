@@ -2,12 +2,8 @@ class PostsController < ApplicationController
   # before_filter :authenticate_user!, only: [:create, :edit, :update, :delete]
 
   def index
-    if current_user
-      @posts = Post.all
-    else
-      @posts = []
-      respond_with status: 401
-    end
+    @posts = Post.all
+    respond_with @posts
   end
 
   def first
@@ -28,6 +24,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    binding.pry
     @post = Post.find(params[:id])
 
     @post.update_attributes(post_params)

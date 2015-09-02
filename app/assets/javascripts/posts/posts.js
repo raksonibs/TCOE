@@ -30,7 +30,7 @@ function($http){
 	}
 
 	o.update = function(post) {
-		return $hhtp.put('/posts/' + post.id+'.json').success(function(data) {
+		return $http.put('/posts/' + post.id+'.json').success(function(data) {
 			return data
 		})
 	}
