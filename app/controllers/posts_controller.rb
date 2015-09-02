@@ -20,15 +20,9 @@ class PostsController < ApplicationController
     respond_with Post.create(post_params)
   end
 
-  # def logout_route
-  #   sign_out current_user
-  #   respond_with []
-  # end
-
   def show
     # both show and edit go here. The save will have to go to an update action
     # also show when not logged in will have to be a different view
-    # binding.pry
     @post = Post.friendly.find(params[:id])
     respond_with @post
   end
