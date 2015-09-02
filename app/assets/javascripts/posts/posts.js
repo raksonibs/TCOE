@@ -29,6 +29,12 @@ function($http){
 		})
 	}
 
+	o.update = function(post) {
+		return $hhtp.put('/posts/' + post.id+'.json').success(function(data) {
+			return data
+		})
+	}
+
 	o.get = function(id) {
 		return $http.get('/posts/' + id +'.json').then(function(res) {
 			// angular.copy(res.data, o.posts);

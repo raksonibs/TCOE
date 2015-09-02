@@ -3,7 +3,7 @@ var myApp = angular.module('photographerNews', ['ui.router','templates', 'Devise
 
 myApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
-  $stateProvider
+$stateProvider
  .state('home', {
    url: '/home',
    templateUrl: 'home/_home.html',
@@ -40,4 +40,4 @@ myApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $u
 
  $urlRouterProvider.otherwise('home');
 
- }]);
+}]);

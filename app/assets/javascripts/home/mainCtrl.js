@@ -12,11 +12,9 @@ function($scope, posts, $location, $sce){
 
   $scope.postBody =  posts.posts[0].body;
 
-  $scope.showPageHero = $location.path() !== '/dashboard'
-
   $scope.postsAll = posts.getAll()
 
-    $scope.user = {};
+  $scope.user = {};
 
   // $scope.postsAll = posts.posts
 

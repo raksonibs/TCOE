@@ -24,3 +24,5 @@ all the different pages
 -> get the basic show page on how it looks with nav, and edit make sure works, then try to deploy to heroku. worry about the smaller things later.
 
 -> need to add image on the about me page.
+
+- if user logged in, can see a nav at top which says edit this page, then go to edit page, that makes sense rather than all the hand waving stuff.

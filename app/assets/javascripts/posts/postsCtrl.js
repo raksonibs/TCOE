@@ -17,4 +17,11 @@ function($scope, post, $location, posts){
   // $scope.showPageHero = $location.path() !== '/dashboard'
 
   $scope.postsAll = posts.getAll()
+
+  $scope.updatePost = function(post) {
+    // need to limit to post
+    post.title = $scope.title
+    post.body = $scope.body
+    post.teaser = $scope.teaser
+  }
 }]);
