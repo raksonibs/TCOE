@@ -22,7 +22,6 @@
 <!-- ng show if dashboard, ng not show if not -->
       <div ng-include="'nav/_nav.html'"></div>
 
-    
     <!-- ui view -->
     <ui-view></ui-view>
     <!-- Footer -->
@@ -58,10 +57,7 @@
                           </a>
                       </li>
                   </ul>
-                  <div class="footer-links" ng-hide="signedIn()">
-                    
-                    <li><a ng-click="logout()">Log Out</a></li>
-                  
+                  <div class="footer-links" ng-hide="signedIn()">                  
                   <p class="copyright text-muted">Copyright &copy; 2015</p>
                   <p><a href="#/home">Home</a></p>
                   <p ng-hide="signedIn()"><a href="#/login">Log In</a></p>

@@ -1,20 +1,40 @@
-<form ng-submit="updatePost(thisPost)">
 <header class="intro-header">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
                 <div class="site-heading">                    
-                    <input type="text" ng-model="title" class="this-header" value="{{thisPost.title}}"></input>
                     <h1> {{thisPost.title}} </h1>
                     <hr class="small">
-                    <input type="text" ng-model="teaser" class="this-teaser" value="{{thisPost.teaser}}"></input>
                     <span class="subheading" ng-model="teaserModel">{{thisPost.teaser}}</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
-</form>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+      <div ng-model="postBody"><span style="font-size:20px; margin-left:10px;" ng-bind-html='toTrustedHTML( postBody )'>
+      </span></div>
+    </div>
+  </div>
+</div>
+
+<div class="edit-header" ng-show="signedIn()" >
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <div class="site-heading">                    
+                    <input type="text" ng-model="title" class="this-header" value="{{thisPost.title}}"></input>
+                    <hr class="small">
+                    <input type="text" ng-model="teaser" class="this-teaser" value="{{thisPost.teaser}}"></input>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
 <div class="container">
   <div class="row">
@@ -26,3 +46,4 @@
 </div>
 
 <button type="submit" ng-click="updatePost(thisPost)" class="btn btn-primary">Edit Post</button>
+</div>
