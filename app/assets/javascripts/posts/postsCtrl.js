@@ -21,9 +21,7 @@ function($scope, post, $location, posts){
   $scope.updatePost = function(post) {
     // need to limit to post
     posts.update({
-      title: post.title,
-      teaser: post.teaser,
-      body: post.body
+      title: $scope.title
     })
   }
 }]);

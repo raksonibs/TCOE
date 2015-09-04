@@ -35,10 +35,8 @@ function($scope, posts, $location, $sce){
   $scope.updatePost = function(post) {
     // need to limit to post
     posts.update({
-      id: $scope.thisPost.id,
-      title: $scope.thisPost.title,
-      teaser: $scope.thisPost.teaser,
-      body: $scope.thisPost.body
+      id: post.id,
+      title: $scope.title
     })
   }
 

@@ -1,18 +1,20 @@
 <!-- NTD: why isn't this working in application.html? Could in the render use @post first or something -->
+<form ng-submit="updatePost(thisPost)">
 <header class="intro-header">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
                 <div class="site-heading">                    
-                    <a ng-click="updatePost(thisId)">Update Post</a>
-                    <h1>{{thisPost.title}}</h1>
+                    <input type="text" ng-model="title" class="this-header" value="{{thisPost.title}}">{{thisPost.title}}</input>
                     <hr class="small">
                     <span class="subheading">{{thisPost.teaser}}</span>
+                    <button type="submit" class="btn btn-primary">Edit Post</button>
                 </div>
             </div>
         </div>
     </div>
 </header>
+</form>
 
 
 <div class="container">
