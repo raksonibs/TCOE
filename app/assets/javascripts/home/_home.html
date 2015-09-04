@@ -1,4 +1,3 @@
-<!-- NTD: why isn't this working in application.html? Could in the render use @post first or something
 <form ng-submit="updatePost(thisPost)">
 <header class="intro-header">
     <div class="container">
@@ -6,7 +5,7 @@
             <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
                 <div class="site-heading">                    
                     <input type="text" ng-model="title" class="this-header" value="{{thisPost.title}}"></input>
-                    <h1> <div text-angular ng-model="htmlVariable">{{thisPost.title}}</div> </h1>
+                    <h1> <div text-angular ng-model="title">{{thisPost.title}}</div> </h1>
                     <hr class="small">
                     <input type="text" ng-model="teaser" class="this-teaser" value="{{thisPost.teaser}}"></input>
                     <span class="subheading" ng-model="teaserModel">{{thisPost.teaser}}</span>
@@ -16,16 +15,13 @@
         </div>
     </div>
 </header>
-</form> -->
+</form>
 
-<div text-angular ng-model="message"></div>
-
-
-<!-- <div class="container">
+<div class="container">
   <div class="row">
     <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
       <span style="font-size:20px; margin-left:10px;" ng-bind-html='toTrustedHTML( postBody )'>
       </span>
     </div>
   </div>
-</div> -->
+</div>
