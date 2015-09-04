@@ -4,7 +4,8 @@ angular.module('photographerNews')
 'posts',
 '$location',
 '$sce',
-function($scope, posts, $location, $sce){
+'Auth',
+function($scope, posts, $location, $sce, Auth){
 
   // $scope.postsAll = posts.getAll()
 
@@ -18,6 +19,20 @@ function($scope, posts, $location, $sce){
 
   $scope.title = posts.posts[0].title;
   $scope.teaser = posts.posts[0].teaser;
+
+  Auth.currentUser().then(function (user){
+    $scope.user = user;
+  });
+
+  $scope.$on('devise:login', function (e, user){
+    $scope.user = user;
+  });
+
+  $scope.$on('devise:logout', function (e, user){
+    $scope.user = {};
+  });
+
+  $scope.signedIn = Auth.isAuthenticated;
 
   $scope.toTrustedHTML = function( html ) {
     return $sce.trustAsHtml( html );
