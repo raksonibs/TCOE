@@ -590,3 +590,86 @@ footer.footer {
   -webkit-animation-name: fadeInRight;
           animation-name: fadeInRight;
 }
+body, html, section {
+  /* important */
+  height: 100%;
+}
+
+.cd-fixed-bg {
+  position: relative;
+  min-height: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  h1, h2 {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: normal;
+    font-size: 4em;
+    font-size: 4rem;
+    text-shadow: 1px 1px 0 #000;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    width: 90%;
+    max-width: 1170px;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}   
+
+.cd-fixed-bg.cd-bg-1 {
+  background-image: url("/assets/books.jpg");
+
+  h1 {
+    top: 80%;
+  }
+  .skater {
+    background: url("/assets/books.jpg") no-repeat;
+    background-size: contain;
+    height: 25%;
+    width: 16%;
+    min-height: 120px;
+    max-height: 208px;
+    min-width: 120px;
+    max-width: 218px;
+    display: block;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: rotate(10deg);
+  }
+  
+}
+.cd-fixed-bg.cd-bg-2 {
+  background-image: url("/assets/books.jpg");
+}
+.cd-fixed-bg.cd-bg-3 {
+  background-image: url("/assets/books.jpg");
+}
+
+.cd-color-1 { background-color: #cdf083;}
+.cd-color-2 { background-color: #fff;}
+.cd-color-3 { background-color: #eedfbf;}
+
+.cd-scrolling-bg {
+  padding: 4em 0;
+  min-height: 100%;
+}
+
+.cd-scrolling-bg-half {
+  padding: 4em 0;
+  min-height: 50%;
+  box-sizing: border-box;
+}
+
+.cd-container {
+  width: 80%;
+  margin: 0 auto;
+  line-height: 2em;
+  line-height: 2rem;
+}
