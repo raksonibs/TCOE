@@ -17,10 +17,7 @@ function($scope, posts, $location, $sce){
   $scope.postBody =  posts.posts[0].body;
 
   $scope.title = posts.posts[0].title;
-
-  $scope.message = "Default message"
-
-  // $scope.postsAll = posts.posts
+  $scope.teaser = posts.posts[0].teaser;
 
   $scope.toTrustedHTML = function( html ) {
     return $sce.trustAsHtml( html );
@@ -42,11 +39,12 @@ function($scope, posts, $location, $sce){
       id: post.id,
       title: $scope.title,
       teaser: $scope.teaser,
-      body: $scope.body
+      body: $scope.postBody
     })
 
     post.title = $scope.title
     post.teaser = $scope.teaser
+    post.body = $scope.postBody
   }
 
   $scope.incrementUpvotes = function(post){
