@@ -16,6 +16,10 @@ function($scope, posts, $location, $sce){
 
   $scope.postBody =  posts.posts[0].body;
 
+  $scope.title = posts.posts[0].title;
+
+  $scope.message = "Default message"
+
   // $scope.postsAll = posts.posts
 
   $scope.toTrustedHTML = function( html ) {
@@ -36,8 +40,13 @@ function($scope, posts, $location, $sce){
     // need to limit to post
     posts.update({
       id: post.id,
-      title: $scope.title
+      title: $scope.title,
+      teaser: $scope.teaser,
+      body: $scope.body
     })
+
+    post.title = $scope.title
+    post.teaser = $scope.teaser
   }
 
   $scope.incrementUpvotes = function(post){

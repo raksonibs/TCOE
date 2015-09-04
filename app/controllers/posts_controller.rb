@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   # before_filter :authenticate_user!, only: [:create, :edit, :update, :delete]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order('id')
     respond_with @posts
   end
 
@@ -24,7 +24,6 @@ class PostsController < ApplicationController
   end
 
   def update
-    binding.pry
     @post = Post.find(params[:id])
 
     @post.update_attributes(post_params)

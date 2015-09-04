@@ -2,6 +2,9 @@
 //= require angular-rails-templates
 //= require angular-ui-router
 //= require angular-devise/lib/devise
+//= require textAngular/dist/textAngular.min
+//= require textAngular/dist/textAngular-sanitize.min
+//= require textAngular/dist/textAngular-rangy.min
 //= require classie
 //= require jquery
 //= require jquery_ujs
