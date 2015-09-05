@@ -51,5 +51,6 @@
 </div>
 
 <div class="edit-header" ng-show="signedIn()" >
-  <button ng-click='changeToEdit()'>Edit View</button>
+  <button ng-click='changeToEdit()' ng-hide="editView">Edit View</button>
+  <button ng-click='changeToShow()' ng-hide="showView">Show View</button>
 </div>

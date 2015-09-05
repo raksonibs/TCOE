@@ -9,6 +9,7 @@ function($scope, posts, $location, $sce, Auth){
 
   // $scope.postsAll = posts.getAll()
   $scope.editView = false;
+  $scope.showView = true;
   $scope.posts = posts.posts;
 
   $scope.thisPost = posts.posts[0];
@@ -68,6 +69,12 @@ function($scope, posts, $location, $sce, Auth){
 
   $scope.changeToEdit = function() {
     $scope.editView = true
+    $scope.showView = false
+  }
+
+  $scope.changeToShow = function() {
+    $scope.editView = false
+    $scope.showView = true
   }
 
 }]);
