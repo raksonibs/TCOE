@@ -1,0 +1,31 @@
+<div ng-show="editView">
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <div class="site-heading">                    
+                    <input type="text" ng-model="title" class="this-header" value="{{thisPost.title}}"></input>
+                    <hr class="small">
+                    <input type="text" ng-model="teaser" class="this-teaser" value="{{thisPost.teaser}}"></input>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+      <div text-angular ng-model="postBody"><span style="font-size:20px; margin-left:10px;" ng-bind-html='toTrustedHTML( postBody )'>
+      </span></div>
+    </div>
+  </div>
+</div>
+
+<button type="submit" ng-click="addPost()" class="btn btn-primary">Create Post</button>
+</div>
+
+<div class="edit-header" ng-show="signedIn()" >
+  <button ng-click='changeToEdit()' ng-hide="editView">Edit View</button>
+  <button ng-click='changeToShow()' ng-hide="showView">Show View</button>
+</div>

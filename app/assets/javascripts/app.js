@@ -14,6 +14,16 @@ $stateProvider
      }]
    }
  })
+ .state('create', {
+   url: '/create',
+   templateUrl: 'create/_create.html',
+   controller: 'CreateCtrl',
+   resolve: {
+     postPromise: ['posts', function(posts) {
+      return posts.getAll();
+     }]
+   }
+ })
  .state('login', {
     url: '/login',
     templateUrl: 'auth/_login.html',

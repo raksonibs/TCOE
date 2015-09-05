@@ -6,6 +6,7 @@
 
 <nav id="nav" class="out" ng-controller="NavCtrl">
   <ul>
+    <li ng-show="signedIn()"><span class="nav-label"><a href="#/create">Create Post</a></span></li>
     <span ng-repeat="post in postsAll | orderBy:'created_at'">
       <li><span class="nav-label"><a href="#/posts/{{post.id}}">{{post.title}}</a></span></li>
     </span>
