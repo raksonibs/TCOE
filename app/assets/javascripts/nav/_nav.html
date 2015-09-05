@@ -1,4 +1,4 @@
-<!-- <div id="nav-trigger" class="nav-trigger open">
+<div id="nav-trigger" class="nav-trigger open">
   <span class="line"></span>
   <span class="line"></span>
   <span class="line"></span>
@@ -12,14 +12,3 @@
 
   </ul>
 </nav>
- -->
-
- <div class="collapse navbar-collapse pull-right" ng-controller="NavCtrl">
-  <ul class="nav navbar-nav">
-    <li><a href="#/home">Home</a></li>
-    <li ng-hide="signedIn()"><a href="#/login">Log In</a></li>
-    <li ng-hide="signedIn()"><a href="#/register">Register</a></li>
-    <li ng-show="signedIn()"><a href="#/">{{ user.email }}</a></li>
-    <li ng-show="signedIn()"><a ng-click="logout()">Log Out</a></li>
-  </ul>
-</div>

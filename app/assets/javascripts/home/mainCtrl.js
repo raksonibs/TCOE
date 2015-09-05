@@ -8,7 +8,7 @@ angular.module('photographerNews')
 function($scope, posts, $location, $sce, Auth){
 
   // $scope.postsAll = posts.getAll()
-
+  $scope.editView = false;
   $scope.posts = posts.posts;
 
   $scope.thisPost = posts.posts[0];
@@ -65,5 +65,9 @@ function($scope, posts, $location, $sce, Auth){
   $scope.incrementUpvotes = function(post){
     post.upvote(post);
   };
+
+  $scope.changeToEdit = function() {
+    $scope.editView = true
+  }
 
 }]);

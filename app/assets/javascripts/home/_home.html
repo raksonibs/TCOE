@@ -1,3 +1,4 @@
+<div ng-hide="editView">
 <header class="intro-header">
     <div class="container">
         <div class="row">
@@ -20,8 +21,9 @@
     </div>
   </div>
 </div>
+</div>
 
-<div class="edit-header" ng-show="signedIn()" >
+<div ng-show="editView">
 <header class="intro-header">
     <div class="container">
         <div class="row">
@@ -46,4 +48,8 @@
 </div>
 
 <button type="submit" ng-click="updatePost(thisPost)" class="btn btn-primary">Edit Post</button>
+</div>
+
+<div class="edit-header" ng-show="signedIn()" >
+  <button ng-click='changeToEdit()'>Edit View</button>
 </div>
