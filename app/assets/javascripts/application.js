@@ -33,9 +33,11 @@ navTrigger.addEventListener('click', navToggle);
 function navToggle(e) {
   var closed = (navTrigger.className.indexOf('close') > 0); 
   if(closed) {
+    console.log('open')
     navTrigger.className = 'nav-trigger open';
     nav.className = 'out';
   } else {
+    console.log('close')
     navTrigger.className = 'nav-trigger close';
     nav.className = 'in';
   }
@@ -55,3 +57,8 @@ $('.header').on('click','',function(){
                             scrollTop: top}, {easing: "swing", duration: 800
                            });
 });
+
+$(document).on('click', '.nav-label a', function() {
+  console.log('over here')
+  $('.nav-trigger').click()
+})

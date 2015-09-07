@@ -1,9 +1,7 @@
 <div ng-hide="editView">
 <div class="imgHolder">
   <%= image_tag 'books.jpg' %>
-  <h1>{{thisPost.title}}</h1>
-  <hr class="small">
-  <span class="subheading" ng-model="teaserModel">{{thisPost.teaser}}</span>
+  <div class='header'>{{thisPost.title}}<BR> {{thisPost.teaser}}</div>
 </div>
 
 <div class="container">
@@ -17,7 +15,7 @@
 </div>
 
 <div ng-show="editView">
-<header class="intro-header">
+<header class="intro-header edit-header">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">

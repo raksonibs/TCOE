@@ -591,10 +591,6 @@ footer.footer {
           animation-name: fadeInRight;
 }
 
-* {
-  color: black !important;
-}
-
 .ta-editor {
     min-height: 300px;
     height: auto;
@@ -612,7 +608,7 @@ footer.footer {
 .imgHolder img{
   width:100%;
   min-height:500px;
-  max-width:1500px;
+  max-width:2000px;
   left:50%;
   -webkit-transform: translate(-50%, -10%);
   -ms-transform: translate(-50%, -10%);
@@ -637,4 +633,12 @@ footer.footer {
 
 .header:hover{
   cursor:default;
+}
+
+.link-footer-rows ul li {
+  width: 7% !important;
+}
+
+.edit-header .site-heading input {
+  color: black !important;
 }
