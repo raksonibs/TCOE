@@ -12,6 +12,7 @@ function($scope, $location, posts, Auth, $sce){
   // $scope.posts = posts.posts;
 
   $scope.editView = true;
+  $scope.showHome = true;
   $scope.showView = false;
 
   $scope.posts = posts.posts;

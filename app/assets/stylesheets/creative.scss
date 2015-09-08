@@ -642,3 +642,19 @@ footer.footer {
 .edit-header .site-heading input {
   color: black !important;
 }
+
+.hidden-first {
+  opacity: 0;
+}
+
+.load-in {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+
+.load-out {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 4s, opacity 4s linear;
+}

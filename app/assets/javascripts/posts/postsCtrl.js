@@ -21,6 +21,7 @@ function($scope, post, $location, posts, Auth, $sce){
   $scope.posts = posts.posts;
 
   $scope.firstId = post.id
+  $scope.showHome = true;
 
   $scope.title = post.title;
   $scope.teaser = post.teaser;

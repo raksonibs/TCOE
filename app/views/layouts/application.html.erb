@@ -20,8 +20,12 @@
 
 
 <!-- ng show if dashboard, ng not show if not -->
-      <div ng-include="'nav/_nav.html'"></div>
+<div ng-hide="showHome" ng-class="{'load-out': fadeOut !== true}">
+  <h1> Loading </h1>
+</div>
 
+<div class="hidden-first" ng-show="showHome" ng-class="{'load-in': fadeOut === true}">
+      <div ng-include="'nav/_nav.html'"></div>
     <!-- ui view -->
     <ui-view></ui-view>
     <!-- Footer -->
@@ -65,6 +69,6 @@
           </div>
       </div>
   </footer> 
-
+</div>
 </body>
 </html>

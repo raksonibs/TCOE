@@ -5,11 +5,14 @@ angular.module('photographerNews')
 '$location',
 '$sce',
 'Auth',
-function($scope, posts, $location, $sce, Auth){
+'$timeout',
+function($scope, posts, $location, $sce, Auth, $timeout){
 
   // $scope.postsAll = posts.getAll()
   $scope.editView = false;
   $scope.showView = true;
+  $scope.showHome = false
+  $scope.fadeOut = false
   $scope.posts = posts.posts;
 
   $scope.thisPost = posts.posts[0];
@@ -77,4 +80,12 @@ function($scope, posts, $location, $sce, Auth){
     $scope.showView = true
   }
 
+  $timeout(loadScreen, 3000)
+
 }]);
+
+function loadScreen() {
+  $scope.fadeOut = true
+  $scope.showHome = true;
+  console.log('load screen')
+}
