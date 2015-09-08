@@ -33,7 +33,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
-      <input type="text" ng-model="photo" class="this-photo" value="{{thisPost.photo}}"></input>
+      Photo: <input type="text" ng-model="photo" class="this-photo" value="{{thisPost.photo}}"></input>
       <div text-angular ng-model="postBody"><span style="font-size:20px; margin-left:10px;" ng-bind-html='toTrustedHTML( postBody )'>
       </span></div>
     </div>
@@ -49,26 +49,14 @@
 </div>
 
 <div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
-      <div class="holder">
-        <div class="row">
-          <div class="col-lg-12 col-lg-offset-1 col-md-12 col-md-offset-1">
-            <a href="" class="exercise-tab"></a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12 col-lg-offset-1 col-md-12 col-md-offset-1">
-            <div class="big-thing">
-              <p> Some text</p>
-              <p> Some other text</p>
-            </div>
-          </div>
-        </div>
-       <!--  <div class="exercise-tab-holder" ng-repeat="exercise in exercises">
-          <p>{{exercise.body}}</p>
-        </div> -->
+  <div class="holder">
+    <a href="">
+      <div class="exercise-tab">
+
       </div>
+    </a>
+    <div class="big-thing" ng-repeat="exercise in exercises">
+      <p>{{exercise.body}}</p>
     </div>
   </div>
 </div>

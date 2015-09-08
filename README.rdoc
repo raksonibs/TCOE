@@ -1,6 +1,5 @@
 todo:
 - tab for exercises and click on keyword in text opens the thing to that exercise
-- image for each post
 - exercise see all
 - loading screen
 - style nice

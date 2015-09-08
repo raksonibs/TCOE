@@ -560,7 +560,7 @@ footer.footer {
 }
 .container,
 .jumbotron .container {
-  max-width: 970px;
+
 }
 @-webkit-keyframes fadeInRight {
   0% {
@@ -659,13 +659,18 @@ footer.footer {
   transition: visibility 0s 4s, opacity 4s linear;
 }
 
-.exercise-tab {
-  width: 100px;
-  height: 45px;
+.holder {
   position: fixed;
   bottom: 0;
+  width: 72%;
+}
+
+.exercise-tab {
+  position: relative;
+  width: 100px;
+  height: 45px;
   left: 50%;
-  background-color: #C44B4B;
+  background-color: black;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   color: black;
@@ -686,7 +691,8 @@ footer.footer {
 .big-thing {
   bottom: 0px;
   left: 0;
-  background-color: #C44B4B;
+  background-color: lightred;
+  opacity: 0.5;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   color: black;

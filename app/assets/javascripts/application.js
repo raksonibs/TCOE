@@ -42,8 +42,11 @@ function navToggle(e) {
     nav.className = 'in';
   }
 }
+})
 
-
+$(document).on('ready', '.big-thing', function() {
+  debugger;
+  $('.big-thing').css('height')
 })
 
 $(window).scroll(function(){
