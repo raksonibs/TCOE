@@ -86,7 +86,13 @@ function($scope, posts, $location, $sce, Auth, $timeout){
 
   // $timeout(loadScreen, 3000)
 
+  $timeout(setTabHeight, 2000)
+
 }]);
+
+function setTabHeight() {
+  
+}
 
 function loadScreen() {
   $scope.fadeOut = true

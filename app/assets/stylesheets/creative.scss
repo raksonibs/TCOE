@@ -666,7 +666,8 @@ footer.footer {
 }
 
 .exercise-tab {
-  position: relative;
+  position: absolute;
+  bottom: 0;
   width: 100px;
   height: 45px;
   left: 50%;
@@ -677,10 +678,15 @@ footer.footer {
   font-size: 1.5em;
   box-shadow:  3px 3px 3px 3px #401818;
   transition: all 1s ease;
+  display: block;
 }
 
 .exercise-tab.moved {
   bottom: 60%;
+}
+
+.exercises-container.moved-container {
+  bottom: -100px;
 }
 
 .exercise-tab-holder {
@@ -688,8 +694,10 @@ footer.footer {
   border: 1px solid red;
 }
 
-.big-thing {
-  bottom: 0px;
+.exercises-container {
+  display: block;
+  position: relative;
+  bottom: -300px;
   left: 0;
   background-color: lightred;
   opacity: 0.5;

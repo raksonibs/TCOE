@@ -68,8 +68,10 @@ $(document).on('click', '.nav-label a', function() {
 
 $(document).on('click', '.exercise-tab', function() {
   $(this).addClass('moved')
+  $('.exercises-container').addClass('moved-container')
 })
 
 $(document).on('click', '.moved.exercise-tab', function() {
   $(this).removeClass('moved')
+  $('.exercises-container').removeClass('moved-container')
 })
