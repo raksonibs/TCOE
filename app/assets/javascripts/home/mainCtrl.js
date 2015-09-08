@@ -26,6 +26,7 @@ function($scope, posts, $location, $sce, Auth, $timeout){
 
   $scope.title = posts.posts[0].title;
   $scope.teaser = posts.posts[0].teaser;
+  $scope.photo = posts.posts[0].photo;
 
   Auth.currentUser().then(function (user){
     $scope.user = user;
@@ -48,11 +49,9 @@ function($scope, posts, $location, $sce, Auth, $timeout){
   $scope.addPost = function(){
     if(!$scope.title || $scope.title === ''){ return; }
     posts.create({
-      title: $scope.title,
-      link: $scope.link,
+      title: $scope.title
     });
     $scope.title = '';
-    $scope.link = '';
   };
 
   $scope.updatePost = function(post) {
@@ -61,12 +60,14 @@ function($scope, posts, $location, $sce, Auth, $timeout){
       id: post.id,
       title: $scope.title,
       teaser: $scope.teaser,
-      body: $scope.postBody
+      body: $scope.postBody,
+      photo: $scope.photo
     })
 
     post.title = $scope.title
     post.teaser = $scope.teaser
     post.body = $scope.postBody
+    post.photo = $scope.photo
   }
 
   $scope.incrementUpvotes = function(post){
