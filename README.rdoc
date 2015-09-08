@@ -1,32 +1,7 @@
-- angular application for blog. Will base a new post on it.
-Basically factory for pages, and pages have the content. It is a smart markdown editor(angular js directive) that allows Kacper to preview what he looks at. Each page is indetifed by its slug, so would be rkacperwrite/#/pages/{page_name} or #/page-name.
-
-That is really it, plus two factor authentication, and being able to edit everything. 
-
-- login action redirects to dashboard path of admin screen
-- need to reroute create and all that
-<in the header nav>
-{{Page.name}}
-<page.teaser>
-<header>
-
-<nav>
-all the different pages
-</nav>
-
-<div class=body>
-{{page.body}}
-</div>
-
-
--> need to make a page home page maybe, the first page they get to, right now a boolean perhaps that you flag as the home or something in the post and then we search for it?
-
--> get the basic show page on how it looks with nav, and edit make sure works, then try to deploy to heroku. worry about the smaller things later.
-
--> need to add image on the about me page.
-
-- if user logged in, can see a nav at top which says edit this page, then go to edit page, that makes sense rather than all the hand waving stuff.
-
-- sometimes scope breaks, not sure why.
-
-- build with angular 1.3 right now, finish it easy peasy, then use angular 2.0 and write about it.
+todo:
+- tab for exercises and click on keyword in text opens the thing to that exercise
+- image for each post
+- exercise see all
+- loading screen
+- style nice
+- eventually change to angular 2.0
