@@ -62,3 +62,11 @@ $(document).on('click', '.nav-label a', function() {
   console.log('over here')
   $('.nav-trigger').click()
 })
+
+$(document).on('click', '.exercise-tab', function() {
+  $(this).addClass('moved')
+})
+
+$(document).on('click', '.moved.exercise-tab', function() {
+  $(this).removeClass('moved')
+})

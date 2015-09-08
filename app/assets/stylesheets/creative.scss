@@ -658,3 +658,41 @@ footer.footer {
   opacity: 0;
   transition: visibility 0s 4s, opacity 4s linear;
 }
+
+.exercise-tab {
+  width: 100px;
+  height: 45px;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  background-color: #C44B4B;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  color: black;
+  font-size: 1.5em;
+  box-shadow:  3px 3px 3px 3px #401818;
+  transition: all 1s ease;
+}
+
+.exercise-tab.moved {
+  bottom: 60%;
+}
+
+.exercise-tab-holder {
+  width: 100%;
+  border: 1px solid red;
+}
+
+.big-thing {
+  bottom: 0px;
+  left: 0;
+  background-color: #C44B4B;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  color: black;
+  font-size: 1.5em;
+  box-shadow:  3px 3px 3px 3px #401818;
+  transition: all 1s ease;
+  width: 100%;
+  border: 1px solid red;
+}

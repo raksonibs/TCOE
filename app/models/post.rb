@@ -6,6 +6,6 @@ class Post < ActiveRecord::Base
 
   # merge to always include comments in the post, not really important.
   def as_json(options = {})
-    super(options.merge(include: :comments))
+    super(options.merge(include: :exercises))
   end
 end

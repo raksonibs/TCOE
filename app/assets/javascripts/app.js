@@ -21,6 +21,9 @@ $stateProvider
    resolve: {
      postPromise: ['posts', function(posts) {
       return posts.getAll();
+     }],
+     exercisePromise: ['exercises', function(exercises) {
+      return exercises.getAll();
      }]
    }
  })

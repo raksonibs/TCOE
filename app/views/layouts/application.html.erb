@@ -20,11 +20,11 @@
 
 
 <!-- ng show if dashboard, ng not show if not -->
-<div ng-hide="showHome" ng-class="{'load-out': fadeOut !== true}">
+<!-- <div ng-hide="showHome" ng-class="{'load-out': fadeOut !== true}">
   <h1> Loading </h1>
-</div>
+</div> -->
 
-<div class="hidden-first" ng-show="showHome" ng-class="{'load-in': fadeOut === true}">
+<!-- <div class="hidden-first" ng-show="showHome" ng-class="{'load-in': fadeOut === true}"> -->
       <div ng-include="'nav/_nav.html'"></div>
     <!-- ui view -->
     <ui-view></ui-view>
@@ -69,6 +69,6 @@
           </div>
       </div>
   </footer> 
-</div>
+<!-- </div> -->
 </body>
 </html>

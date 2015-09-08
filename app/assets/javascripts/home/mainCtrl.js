@@ -11,7 +11,7 @@ function($scope, posts, $location, $sce, Auth, $timeout){
   // $scope.postsAll = posts.getAll()
   $scope.editView = false;
   $scope.showView = true;
-  $scope.showHome = false
+  $scope.showHome = true
   $scope.fadeOut = false
   $scope.posts = posts.posts;
 
@@ -20,6 +20,9 @@ function($scope, posts, $location, $sce, Auth, $timeout){
   $scope.firstId = $scope.thisPost.id
 
   $scope.postBody =  posts.posts[0].body;
+
+  post = posts.posts[0]
+  $scope.exercises = post.exercises
 
   $scope.title = posts.posts[0].title;
   $scope.teaser = posts.posts[0].teaser;
@@ -80,7 +83,7 @@ function($scope, posts, $location, $sce, Auth, $timeout){
     $scope.showView = true
   }
 
-  $timeout(loadScreen, 3000)
+  // $timeout(loadScreen, 3000)
 
 }]);
 
