@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   has_many :comments
+  has_many :exercises
   extend FriendlyId
   friendly_id :title, use: :slugged
 

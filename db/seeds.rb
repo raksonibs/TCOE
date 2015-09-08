@@ -176,14 +176,6 @@ Most stories take on a structure, then. Some standardization of form. The common
 
 “Seventh: The story teller seems to keep going out of his way to allude to trifles, every one of which in another type of story would mean a signpost denoting a turn of action… but just because these trifles are meaningless, they are all-important in giving the real atmosphere of this particular story.”
 
-Exercises
-
-1. When were you the most afraid? Write what happened. 
-
-2. Imagine a cause without an effect. Something trivial, that has no response, not even a failed one. For example, read Chekov's 'Lady with a Pet Dog.'
-
-3. Write a fight scene from the first move to the last punch.
-
 [1] Hemingway, E. Death in the Afternoon. Scribner. 1996, 192.
 
 [2] Plimpton, G. The Paris Review Interviews: Writers at Work. Penguin. 1985, 224.
@@ -484,5 +476,12 @@ Write about being a girl imagining yourself in your earliest memory and then whe
 
 He sneezes out stories and poems at Mizpellt Wurdz, writes on a barrage of nonfiction platforms, and has a starving selection of self-published works: Spaghetti Knots and Love you madly. He also flat-lines punchlines at badcomcs.ca."
   }])
+
+Post.all.each do |post|
+  3.times do |i|
+    post.exercises << Exercise.new(body: 'Write about fighting the dogs.', keyword: "test#{i}")
+    post.save
+  end
+end 
 
 User.create({email: 'kacperniburski@gmail.com', password: 'testtest', password_confirmation: 'testtest'})

@@ -42,6 +42,18 @@ function($http){
 		})
 	}
 
+	o.addExercise = function(id, exercise) {
+		return $http.post('/posts/' + id + '/exercises.json', exercise)
+	}
+
+	o.updateExercise = function(id, exercise) {
+		return $http.put('/posts/' + id + '/exercises.json', exercise)
+	}
+
+	o.getExercises = function(id) {
+		return $http.get('/posts/' + id + '/exercises.json')
+	}
+
 	o.addComment = function(id, comment) {
 		return $http.post('/posts/' + id + '/comments.json', comment)
 	}
