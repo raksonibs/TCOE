@@ -57,7 +57,7 @@
     </a>
     <div class="exercises-container">      
       <div class="big-thing" ng-repeat="exercise in exercises">
-        <p>{{exercise.body}}</p>
+        <p data-keyword="{{exercise.keyword}}">{{exercise.body}} - {{exercise.keyword}}</p>
       </div>
     </div>
   </div>

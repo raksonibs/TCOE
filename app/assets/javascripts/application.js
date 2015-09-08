@@ -73,5 +73,14 @@ $(document).on('click', '.exercise-tab', function() {
 
 $(document).on('click', '.moved.exercise-tab', function() {
   $(this).removeClass('moved')
+  $('.exercises-container').children().show();
   $('.exercises-container').removeClass('moved-container')
+})
+
+$(document).on('click', 'u', function() {
+  var keyWord = $(this).text()
+  $('.exercises-container').children().hide()
+  $('.exercises-container').children().find('p[data-keyword="' +  keyWord + '"]').parent().show()  
+  $('.exercise-tab').addClass('moved')
+  $('.exercises-container').addClass('moved-container')
 })

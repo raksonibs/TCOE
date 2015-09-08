@@ -99,3 +99,12 @@ function loadScreen() {
   $scope.showHome = true;
   console.log('load screen')
 }
+
+function mapKeywords() {
+  // can't check each word in the body, that would take forever
+  // to see if that keyword is the word. How to do this.
+  // not only that, need to mark it somehow
+  // I KNOW! instead of trying to map, that will be good, a quick solution
+  // is to find the word that is underlined, and find the respective exercise.
+  // yeah!
+}
