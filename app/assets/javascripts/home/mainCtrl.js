@@ -14,6 +14,7 @@ function($scope, posts, $location, $sce, Auth, $timeout){
   $scope.showHome = true
   $scope.fadeOut = false
   $scope.posts = posts.posts;
+  $scope.showLoadBar = false;
 
   $scope.thisPost = posts.posts[0];
 
@@ -65,6 +66,10 @@ function($scope, posts, $location, $sce, Auth, $timeout){
       photo: $scope.photo
     })
 
+    $timeout(loadBar, 2000)
+
+    $scope.showLoadBar = false;
+
     post.title = $scope.title
     post.teaser = $scope.teaser
     post.body = $scope.postBody
@@ -101,13 +106,15 @@ function($scope, posts, $location, $sce, Auth, $timeout){
 
   // $timeout(loadScreen, 3000)
 
-  $timeout(setTabHeight, 2000)
-
+  function loadBar() {
+    $scope.showLoadBar = true
+  }
 }]);
 
 function setTabHeight() {
   
 }
+
 
 function loadScreen() {
   $scope.fadeOut = true

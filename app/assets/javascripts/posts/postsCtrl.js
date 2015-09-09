@@ -92,6 +92,7 @@ function($scope, post, $location, posts, Auth, $sce){
         keyword: exercise.keyword
       }
     })
+  }
 
   $scope.incrementUpvotes = function(post){
     post.upvote(post);
