@@ -27,6 +27,7 @@ function($scope, posts, $location, $sce, Auth, $timeout){
   $scope.title = posts.posts[0].title;
   $scope.teaser = posts.posts[0].teaser;
   $scope.photo = posts.posts[0].photo;
+  $scope.exercises = posts.posts[0].exercises;
 
   Auth.currentUser().then(function (user){
     $scope.user = user;
@@ -68,6 +69,20 @@ function($scope, posts, $location, $sce, Auth, $timeout){
     post.teaser = $scope.teaser
     post.body = $scope.postBody
     post.photo = $scope.photo
+    // post.exercises = $scope.exercises
+  }
+
+  $scope.updateExercise = function(post, exercise) {
+    // need to limit to exercise
+    posts.updateExercise({
+      id: post.id,
+      exercise: {
+        id: exercise.id,
+        body: exercise.body,
+        keyword: exercise.keyword
+      }
+    })
+    // post.exercises = $scope.exercises
   }
 
   $scope.incrementUpvotes = function(post){

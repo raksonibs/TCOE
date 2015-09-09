@@ -4,4 +4,8 @@ class ExercisesController < ApplicationController
     exercises = @post.exercises
     respond_with exercises
   end
+
+  def update
+    binding.pry
+  end
 end

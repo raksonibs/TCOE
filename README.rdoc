@@ -4,6 +4,9 @@ todo:
 - loading screen
 - style nice
 - eventually change to angular 2.0
+- exercise edit page with keyword change.
+- style make look crisp.
+- show when edit or changing pages
 
 keyword thoughts:
 - click on keyword in body of text, brings up associated exercise hiding all the other ones

@@ -30,7 +30,7 @@ function($http){
 	}
 
 	o.update = function(post) {
-		return $http.put('/posts/' + post.id+'.json', {teaser: post.teaser, body: post.body, title: post.title, photo: post.photo}).success(function(data) {
+		return $http.put('/posts/' + post.id+'.json', {teaser: post.teaser, body: post.body, title: post.title, photo: post.photo, exercises: post.exercises}).success(function(data) {
 			return data
 		})
 	}
@@ -47,7 +47,7 @@ function($http){
 	}
 
 	o.updateExercise = function(id, exercise) {
-		return $http.put('/posts/' + id + '/exercises.json', exercise)
+		return $http.put('/posts/' + id.id + '/exercises/'+ id.exercise.id+'.json', id.exercise)
 	}
 
 	o.getExercises = function(id) {

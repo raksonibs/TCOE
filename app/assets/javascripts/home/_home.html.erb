@@ -40,6 +40,19 @@
   </div>
 </div>
 
+<div class="container">
+  <div class="row">
+    <div class="exercises-container-edit">      
+      <div class="big-thing" ng-repeat="exercise in exercises">
+        <p data-keyword="{{exercise.keyword}}">{{exercise.body}} - {{exercise.keyword}}</p>
+        <input type="text" class="this-exercise" value="{{exercise.body}}"></input>
+        <input type="text" class="this-exercise" value="{{exercise.keyword}}"></input>
+        <button type="submit" ng-click="updateExercise(thisPost, exercise)" class="btn btn-primary">Edit Exercise</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <button type="submit" ng-click="updatePost(thisPost)" class="btn btn-primary">Edit Post</button>
 </div>
 
