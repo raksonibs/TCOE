@@ -82,6 +82,17 @@ function($scope, post, $location, posts, Auth, $sce){
     post.photo = $scope.photo
   }
 
+  $scope.updateExercise = function(post, exercise) {
+    // need to limit to exercise
+    posts.updateExercise({
+      id: post.id,
+      exercise: {
+        id: exercise.id,
+        body: exercise.body,
+        keyword: exercise.keyword
+      }
+    })
+
   $scope.incrementUpvotes = function(post){
     post.upvote(post);
   };
