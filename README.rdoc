@@ -12,3 +12,11 @@ keyword thoughts:
 - click on keyword in body of text, brings up associated exercise hiding all the other ones
 - need to make all keywords underline in text somehow in angular
 - once mapped all keywords to their correct exercise, once click keyword in text (it is underlined in text or something), opens up the associated exercise in the exercise tab
+
+- atomize the cheokv quote
+- make everything look crisp
+- then fade in to thing.
+- upgrade to 2.0
+
+atomize:
+  - each atom is x the same size. See how other people maybe build something similiar first.
