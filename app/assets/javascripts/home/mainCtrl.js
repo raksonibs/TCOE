@@ -11,10 +11,10 @@ function($scope, posts, $location, $sce, Auth, $timeout){
   // $scope.postsAll = posts.getAll()
   $scope.editView = false;
   $scope.showView = true;
-  $scope.showHome = true
-  $scope.fadeOut = false
+  $scope.showHome = false
+  $scope.fadeOut = true
   $scope.posts = posts.posts;
-  $scope.showLoadBar = false;
+  $scope.showLoadBar = true;
 
   $scope.thisPost = posts.posts[0];
 
@@ -104,7 +104,7 @@ function($scope, posts, $location, $sce, Auth, $timeout){
     $scope.showView = true
   }
 
-  // $timeout(loadScreen, 3000)
+  $timeout(loadScreen, 2000)
 
   function loadBar() {
     $scope.showLoadBar = true

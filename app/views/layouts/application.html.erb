@@ -16,17 +16,17 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body ng-app="photographerNews">
+<body ng-app="photographerNews" ng-class="{'load-in': fadeOut === true}">
 
 
 <!-- ng show if dashboard, ng not show if not -->
-<!-- <div ng-hide="showHome" ng-class="{'load-out': fadeOut !== true}">
-  <h1> Loading </h1>
-</div> -->
+<div ng-hide="showHome" ng-class="{'load-out': fadeOut !== true}">
+  <h1 class="writing-loading centered center"> A Writing Workshop </h1>
+</div>
 
-<!-- <div class="hidden-first" ng-show="showHome" ng-class="{'load-in': fadeOut === true}"> -->
+<div class="hidden-first" ng-show="showHome" ng-class="{'load-in': fadeOut === true}">
 
-<div class="loadingBar" ng-hide="showLoadBar">Loading</div>
+<!-- <div class="loadingBar" ng-show="showLoadBar">Loading</div> -->
       <div ng-include="'nav/_nav.html'"></div>
     <!-- ui view -->
     <ui-view></ui-view>
@@ -71,6 +71,6 @@
           </div>
       </div>
   </footer> 
-<!-- </div> -->
+</div>
 </body>
 </html>

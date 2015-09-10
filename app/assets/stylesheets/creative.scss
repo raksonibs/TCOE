@@ -674,7 +674,7 @@ footer.footer {
   bottom: 0;
   width: 200px;
   height: 45px;
-  left: 41%;
+  left: 50%;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   color: white;
@@ -720,4 +720,33 @@ u:hover {
 .loadingBar {
   font-size: 72px;
   color: red;
+}
+
+@media screen and (max-width: 644px){
+  .header {
+    font-size: 1em;
+  }
+  .exercise-tab { 
+    left: 35%;
+  }
+}
+
+@media screen and (max-width: 544px){
+  .list-inline > li {
+    margin: 0 15px;
+  }
+  .header {
+    font-size: 1em;
+  }
+  .exercise-tab { 
+    left: 29%;
+  }
+}
+
+.writing-loading {
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  color: white;
 }

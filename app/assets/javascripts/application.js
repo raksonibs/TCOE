@@ -59,6 +59,8 @@ $('.header').on('click','',function(){
    $("html, body").animate({
                             scrollTop: top}, {easing: "swing", duration: 800
                            });
+
+  // $('.hidden-first').fadeIn()
 });
 
 $(document).on('click', '.nav-label a', function() {
