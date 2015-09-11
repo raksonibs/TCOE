@@ -87,7 +87,6 @@ function($scope, posts, $location, $sce, Auth, $timeout){
         keyword: exercise.keyword
       }
     })
-    // post.exercises = $scope.exercises
   }
 
   $scope.incrementUpvotes = function(post){
@@ -104,7 +103,7 @@ function($scope, posts, $location, $sce, Auth, $timeout){
     $scope.showView = true
   }
 
-  $timeout(loadScreen, 2000)
+  // $timeout(loadScreen, 2000)
 
   function loadBar() {
     $scope.showLoadBar = true

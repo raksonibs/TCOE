@@ -1,59 +1,59 @@
-<div ng-hide="editView">
-<div class="imgHolder">
-  <h1 class="header-logo"> The <br> Composition <br> of Ether </h1>
-  <img src="{{thisPost.photo}}" alt="">
-  <div class='header'><BR /> {{thisPost.teaser}}</div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
-      <div ng-model="postBody"><span style="font-size:20px; margin-left:10px;" ng-bind-html='toTrustedHTML( postBody )'>
-      </span></div>
-    </div>
+<!-- <div ng-hide="editView">
+  <div class="imgHolder">
+    <h1 class="header-logo"> The <br> Composition <br> of Ether </h1>
+    <img src="{{thisPost.photo}}" alt="">
+    <div class='header'><BR /> {{thisPost.teaser}}</div>
   </div>
-</div>
-</div>
 
-<div ng-show="editView">
-<header class="intro-header edit-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
-                <div class="site-heading">                    
-                    <input type="text" ng-model="title" class="this-header" value="{{thisPost.title}}"></input>
-                    <hr class="small">
-                    <input type="text" ng-model="teaser" class="this-teaser" value="{{thisPost.teaser}}"></input>                    
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
-      Photo: <input type="text" ng-model="photo" class="this-photo" value="{{thisPost.photo}}"></input>
-      <div text-angular ng-model="postBody"><span style="font-size:20px; margin-left:10px;" ng-bind-html='toTrustedHTML( postBody )'>
-      </span></div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="exercises-container-edit">      
-      <div class="big-thing" ng-repeat="exercise in exercises">
-        <p data-keyword="{{exercise.keyword}}">{{exercise.body}} - {{exercise.keyword}}</p>
-        <input type="text" ng-model="exercise.body" class="this-exercise" value="{{exercise.body}}"></input>
-        <input type="text" ng-model="exercise.keyword" class="this-exercise" value="{{exercise.keyword}}"></input>
-        <button type="submit" ng-click="updateExercise(thisPost, exercise)" class="btn btn-primary">Edit Exercise</button>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+        <div ng-model="postBody"><span style="font-size:20px; margin-left:10px;" ng-bind-html='toTrustedHTML( postBody )'>
+        </span></div>
       </div>
     </div>
   </div>
 </div>
 
-<button type="submit" ng-click="updatePost(thisPost)" class="btn btn-primary">Edit Post</button>
+<div ng-show="editView">
+  <header class="intro-header edit-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+          <div class="site-heading">                    
+            <input type="text" ng-model="title" class="this-header" value="{{thisPost.title}}"></input>
+            <hr class="small">
+            <input type="text" ng-model="teaser" class="this-teaser" value="{{thisPost.teaser}}"></input>                    
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+        Photo: <input type="text" ng-model="photo" class="this-photo" value="{{thisPost.photo}}"></input>
+        <div text-angular ng-model="postBody"><span style="font-size:20px; margin-left:10px;" ng-bind-html='toTrustedHTML( postBody )'>
+        </span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="exercises-container-edit">      
+        <div class="big-thing" ng-repeat="exercise in exercises">
+          <p data-keyword="{{exercise.keyword}}">{{exercise.body}} - {{exercise.keyword}}</p>
+          <input type="text" ng-model="exercise.body" class="this-exercise" value="{{exercise.body}}"></input>
+          <input type="text" ng-model="exercise.keyword" class="this-exercise" value="{{exercise.keyword}}"></input>
+          <button type="submit" ng-click="updateExercise(thisPost, exercise)" class="btn btn-primary">Edit Exercise</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" ng-click="updatePost(thisPost)" class="btn btn-primary">Edit Post</button>
 </div>
 
 <div class="edit-header" ng-show="signedIn()" >
@@ -74,4 +74,145 @@
       </div>
     </div>
   </div>
+</div> -->
+
+<div class="main">
+  <div class="sidebar-hover">
+    <p class="pagination">
+      <span class="page">01</span> / <span class="total-pages">08</span>
+    </p>
+  </div>
+  <div class="sidebar-real">
+    <div data-page="1" class="nav-elem nav-1 active"></div>
+    <div data-page="2" class="nav-elem nav-2"></div>
+    <div data-page="3" class="nav-elem nav-3"></div>
+    <div data-page="4" class="nav-elem nav-4"></div>
+    <div data-page="5" class="nav-elem nav-5"></div>
+    <div data-page="6" class="nav-elem nav-6"></div>
+    <div data-page="7" class="nav-elem nav-7"></div>
+    <div data-page="8" class="nav-elem nav-8"></div>
+  </div>
+  <div class="sections">
+    <div class="section section-1">
+      <div class="left-part"></div>
+      <div class="content">
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <h2 class="section-heading">Fancy heading #1</h2>
+        <p class="additional-text">Some cool info or hashtags #1</p>
+      </div>
+    </div>
+    <div class="section section-2">
+      <div class="left-part"></div>
+      <div class="content">
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <h2 class="section-heading">Fancy heading #2</h2>
+        <p class="additional-text">Some cool info or hashtags #2</p>
+      </div>
+    </div>
+    <div class="section section-3">
+      <div class="left-part"></div>
+      <div class="content">
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <h2 class="section-heading">Fancy heading #3</h2>
+        <p class="additional-text">Some cool info or hashtags #3</p>
+      </div>
+    </div>
+    <div class="section section-4">
+      <div class="left-part"></div>
+      <div class="content">
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <h2 class="section-heading">Fancy heading #4</h2>
+        <p class="additional-text">Some cool info or hashtags #4</p>
+      </div>
+    </div>
+    <div class="section section-5">
+      <div class="left-part"></div>
+      <div class="content">
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <h2 class="section-heading">Fancy heading #5</h2>
+        <p class="additional-text">Some cool info or hashtags #5</p>
+      </div>
+    </div>
+    <div class="section section-6">
+      <div class="left-part"></div>
+      <div class="content">
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <h2 class="section-heading">Fancy heading #6</h2>
+        <p class="additional-text">Some cool info or hashtags #6</p>
+      </div>
+    </div>
+    <div class="section section-7">
+      <div class="left-part"></div>
+      <div class="content">
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <h2 class="section-heading">Fancy heading #7</h2>
+        <p class="additional-text">Some cool info or hashtags #7</p>
+      </div>
+    </div>
+    <div class="section section-8">
+      <div class="left-part"></div>
+      <div class="content">
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <div class="bg-part"></div>
+        <h2 class="section-heading"><a class="codepen-link" href="http://codepen.io/suez/public/" target="_blank">Fancy heading #8</a></h2>
+        <p class="check-out additional-text">Check out my other <a href="http://codepen.io/suez/public/" target="_blank">pens</a></p>
+      </div>
+    </div>
+  </div>
+  <h2 class="scroll-down">Scroll down</h2>
 </div>

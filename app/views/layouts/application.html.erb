@@ -16,60 +16,66 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body ng-app="photographerNews" ng-class="{'load-in': fadeOut === true}">
+<body ng-app="photographerNews">
 
-<div class="atomize-container"><span class="atomize-1"></span><h1>Atomizing</h1></div>
-<!-- ng show if dashboard, ng not show if not -->
-<!-- <div ng-hide="showHome" ng-class="{'load-out': fadeOut !== true}">
-  <h1 class="writing-loading centered center"> A Writing Workshop </h1>
-</div>
+  <!-- ng show if dashboard, ng not show if not -->
+  <div class="main">
+    <div class="sections">
+      <div class="section section-1">
+        <div>
+          <h1 class="writing-loading centered center"> A Writing Workshop </h1>
+          <h2 class="scroll-down">Scroll down</h2>
+        </div>
+      </div>
 
-<div class="hidden-first" ng-show="showHome" ng-class="{'load-in': fadeOut === true}">
+      <div>
+        <div class="section section-2"
+        <div class="loadingBar" ng-show="showLoadBar">Loading</div> 
+        <div ng-include="'nav/_nav.html'"></div>
 
- <div class="loadingBar" ng-show="showLoadBar">Loading</div> 
-      <div ng-include="'nav/_nav.html'"></div>
+        <ui-view></ui-view>
 
-    <ui-view></ui-view>
-
-    <hr>
-  <footer>
-      <div class="container link-footer-rows">
-          <div class="row">
+        <hr>
+        <footer>
+          <div class="container link-footer-rows">
+            <div class="row">
               <div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-1">
-                  <ul class="list-inline text-center">
-                      <li>
-                          <a href="#">
-                              <span class="fa-stack fa-lg">
-                                  <i class="fa fa-circle fa-stack-2x"></i>
-                                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                              </span>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="#">
-                              <span class="fa-stack fa-lg">
-                                  <i class="fa fa-circle fa-stack-2x"></i>
-                                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                              </span>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="#">
-                              <span class="fa-stack fa-lg">
-                                  <i class="fa fa-circle fa-stack-2x"></i>
-                                  <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                              </span>
-                          </a>
-                      </li>
-                  </ul>
-                  <div class="footer-links" ng-hide="signedIn()">                  
+                <ul class="list-inline text-center">
+                  <li>
+                    <a href="#">
+                      <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <div class="footer-links" ng-hide="signedIn()">                  
                   <p class="copyright text-muted">Copyright &copy; 2015</p>
                   <p><a href="#/home">Home</a></p>
-                  </div>
+                </div>
               </div>
+            </div>
           </div>
+        </footer> 
       </div>
-  </footer> 
-</div> -->
+    </div>
+  </div>
 </body>
 </html>
