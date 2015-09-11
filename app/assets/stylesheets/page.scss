@@ -180,28 +180,28 @@ html, body {
   }
   
   &.nav-1 {
-    background-image: url(http://i.imgur.com/c07asTW.jpg);
+    background-image: url('/assets/books.jpg');
   }
   &.nav-2 {
-    background-image: url(http://i.imgur.com/A9Ivcsj.jpg);
+    background-image: url('/assets/books.jpg');
   }
   &.nav-3 {
-    background-image: url(http://i.imgur.com/PbV1Grl.jpg);
+    background-image: url('/assets/books.jpg');
   }
   &.nav-4 {
-    background-image: url(http://i.imgur.com/Pg6nUAn.jpg);
+    background-image: url('/assets/books.jpg');
   }
   &.nav-5 {
-    background-image: url(http://i.imgur.com/VWYl1EC.jpg);
+    background-image: url('/assets/books.jpg');
   }
   &.nav-6 {
-    background-image: url(http://i.imgur.com/ga3BiDw.jpg);
+    background-image: url('/assets/books.jpg');
   }
   &.nav-7 {
-    background-image: url(http://i.imgur.com/Mei5S7f.jpg);
+    background-image: url('/assets/books.jpg');
   }
   &.nav-8 {
-    background-image: url(http://i.imgur.com/jAY4044.jpg);
+    background-image: url('/assets/books.jpg');
   }
   
 }
@@ -220,28 +220,28 @@ html, body {
   height: 100%;
   
   &.section-1 {
-    @include setBg('http://i.imgur.com/c07asTW.jpg');
+    @include setBg('/assets/books.jpg');
   }
   &.section-2 {
-    @include setBg('http://i.imgur.com/A9Ivcsj.jpg');
+    @include setBg('/assets/books.jpg');
   }
   &.section-3 {
-    @include setBg('http://i.imgur.com/PbV1Grl.jpg'); 
+    @include setBg('/assets/books.jpg');
   }
   &.section-4 {
-    @include setBg('http://i.imgur.com/Pg6nUAn.jpg');
+    @include setBg('/assets/books.jpg');
   }
   &.section-5 {
-    @include setBg('http://i.imgur.com/VWYl1EC.jpg');
+    @include setBg('/assets/books.jpg');
   }
   &.section-6 {
-    @include setBg('http://i.imgur.com/ga3BiDw.jpg');
+    @include setBg('/assets/books.jpg');
   }
   &.section-7 {
-    @include setBg('http://i.imgur.com/Mei5S7f.jpg');
+    @include setBg('/assets/books.jpg');
   }
   &.section-8 {
-    @include setBg('http://i.imgur.com/jAY4044.jpg');
+    @include setBg('/assets/books.jpg');
   }
 }
 
