@@ -92,7 +92,7 @@ $(document).on('click', 'u', function() {
 // Abandon all hope ye who enter here
 $(document).ready(function() {
   
-  var navigating = false,
+  var navigating = true,
       curPage = 1,
       pages = $(".section").length,
       $sections = $(".sections"),
@@ -134,6 +134,14 @@ $(document).ready(function() {
       $textStuff.show();
       $textStuff.css("top");
       $textStuff.removeClass("not-visible");
+      
+      $(".section-heading").hide()
+      $(".section-heading[data-page='" + (curPage) + "']").show()
+      if (curPage === 3) {
+        $('.main').fadeOut()
+        $(".section-heading[data-page='" + (curPage) + "']").fadeOut()
+        $(".final-page").fadeIn()
+      }
     }, time + 10);
   }
   
@@ -190,14 +198,15 @@ $(document).ready(function() {
   
   var sidebarScroll = 0,
       $navEl =  $(".nav-elem"),
-      $sidebar = $(".sidebar-real"),
-      maxScroll = $navEl.length * $navEl.height() - $(window).height();
+      $sidebar = $(".sidebar-real")
+  $(".section-heading[data-page='" + (curPage+1) + "']").hide()
+      $(".section-heading[data-page='" + (curPage+2) + "']").hide()
 
   setTimeout(function() {
     navigateDown()
-    // setTimeout(function() {
-    //   // navigateDown()
-    // }, 4000)
+    setTimeout(function() {
+      navigateDown()
+    }, 4000)
   }, 6000)
   
 });
