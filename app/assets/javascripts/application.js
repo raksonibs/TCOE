@@ -187,84 +187,16 @@ $(document).ready(function() {
     }
   }
   
-  $(document).on("mousewheel DOMMouseScroll", function(e) {
-    if (!navigating) {
-      if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) {
-        navigateUp();
-      } else { 
-        navigateDown();
-      }
-    }
-  });
-  
-  $(document).on("mousewheel DOMMouseScroll",
-                 ".sidebar-hover, .sidebar-real",
-                 function(e) {
-    e.stopPropagation();
-  });
-  
   var sidebarScroll = 0,
       $navEl =  $(".nav-elem"),
       $sidebar = $(".sidebar-real"),
       maxScroll = $navEl.length * $navEl.height() - $(window).height();
-  
-  $(document).on("mousewheel DOMMouseScroll", ".sidebar-real", function(e) {
-    if (navigating) return;
-    if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) {
-      if (!sidebarScroll) return;
-      sidebarScroll += 100;
-      if (sidebarScroll > 0) sidebarScroll = 0;
-    } else { 
-      if (Math.abs(sidebarScroll) === maxScroll) return;
-      sidebarScroll -= 100;
-      if (Math.abs(sidebarScroll) > maxScroll) sidebarScroll = 0 - maxScroll;
-    }
-    $sidebar.css("transform", "translateY("+ sidebarScroll +"px)");
-  });
-  
-  $(document).on("click", ".nav-elem:not(.active)", function() {
-    if (navigating) return;
-    var activePage = parseInt($(".nav-elem.active").attr("data-page"), 10),
-        futurePage = $(this).attr("data-page");
-    
-    pagination(futurePage);
-    
-    if (Math.abs(activePage - futurePage) > 2) {
-      var $fakePage = $(".section-" + futurePage).clone(),
-          $currentPage = $(".section-" + activePage),
-          fakeNumber = 0;
-      // ugly code, do not enter here
-      if (activePage < futurePage) {
-        // moving down
-        $currentPage.after($fakePage);
-        fakeNumber = activePage + 1;
-        $(".main").css("top");
-        randomDelay();
-        magicStuff(fakeNumber);
-      } else {
-        // moving up (real hell)
-        $currentPage.before($fakePage);
-        fakeNumber = activePage - 1;
-        trickyStuff(activePage + 1);
-        $(".main").css("top");
-        randomDelay();
-        $(".main").css("top");
-        magicStuff(activePage);
-      }
-      timeoutNav(2050);
-      setTimeout(function() {
-        $fakePage.remove();
-        trickyStuff(futurePage);
-      }, 2000);
-    } else {
-      magicStuff(futurePage);
-      timeoutNav();
-    }
-  });
-  
-  $(window).resize(function() {
-    maxScroll = $navEl.length * $navEl.height() - $(window).height();
-    $sidebar.css("transform", "translateY(0)");
-  });
+
+  setTimeout(function() {
+    navigateDown()
+    setTimeout(function() {
+      navigateDown()
+    }, 4000)
+  }, 4000)
   
 });

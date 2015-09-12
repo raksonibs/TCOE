@@ -180,28 +180,28 @@ html, body {
   }
   
   &.nav-1 {
-    background-image: url('/assets/books.jpg');
+    background-image: url(http://i.imgur.com/c07asTW.jpg);
   }
   &.nav-2 {
-    background-image: url('/assets/books.jpg');
+    background-image: url(http://i.imgur.com/A9Ivcsj.jpg);
   }
   &.nav-3 {
-    background-image: url('/assets/books.jpg');
+    background-image: url(http://i.imgur.com/PbV1Grl.jpg);
   }
   &.nav-4 {
-    background-image: url('/assets/books.jpg');
+    background-image: url(http://i.imgur.com/Pg6nUAn.jpg);
   }
   &.nav-5 {
-    background-image: url('/assets/books.jpg');
+    background-image: url(http://i.imgur.com/VWYl1EC.jpg);
   }
   &.nav-6 {
-    background-image: url('/assets/books.jpg');
+    background-image: url(http://i.imgur.com/ga3BiDw.jpg);
   }
   &.nav-7 {
-    background-image: url('/assets/books.jpg');
+    background-image: url(http://i.imgur.com/Mei5S7f.jpg);
   }
   &.nav-8 {
-    background-image: url('/assets/books.jpg');
+    background-image: url(http://i.imgur.com/jAY4044.jpg);
   }
   
 }
@@ -220,28 +220,28 @@ html, body {
   height: 100%;
   
   &.section-1 {
-    @include setBg('/assets/books.jpg');
+    @include setBg('http://i.imgur.com/c07asTW.jpg');
   }
   &.section-2 {
-    @include setBg('/assets/books.jpg');
+    @include setBg('http://i.imgur.com/A9Ivcsj.jpg');
   }
   &.section-3 {
-    @include setBg('/assets/books.jpg');
+    @include setBg('http://i.imgur.com/PbV1Grl.jpg'); 
   }
   &.section-4 {
-    @include setBg('/assets/books.jpg');
+    @include setBg('http://i.imgur.com/Pg6nUAn.jpg');
   }
   &.section-5 {
-    @include setBg('/assets/books.jpg');
+    @include setBg('http://i.imgur.com/VWYl1EC.jpg');
   }
   &.section-6 {
-    @include setBg('/assets/books.jpg');
+    @include setBg('http://i.imgur.com/ga3BiDw.jpg');
   }
   &.section-7 {
-    @include setBg('/assets/books.jpg');
+    @include setBg('http://i.imgur.com/Mei5S7f.jpg');
   }
   &.section-8 {
-    @include setBg('/assets/books.jpg');
+    @include setBg('http://i.imgur.com/jAY4044.jpg');
   }
 }
 
