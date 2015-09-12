@@ -220,13 +220,13 @@ html, body {
   height: 100%;
   
   &.section-1 {
-    @include setBg('http://i.imgur.com/c07asTW.jpg');
+    @include setBg('/assets/books.jpg');
   }
   &.section-2 {
-    @include setBg('http://i.imgur.com/A9Ivcsj.jpg');
+    @include setBg('/assets/EBWHITE.jpg');
   }
   &.section-3 {
-    @include setBg('http://i.imgur.com/PbV1Grl.jpg'); 
+    @include setBg('/assets/nineteen_eighty-four_manuscript.jpg'); 
   }
   &.section-4 {
     @include setBg('http://i.imgur.com/Pg6nUAn.jpg');

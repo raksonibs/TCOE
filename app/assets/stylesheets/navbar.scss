@@ -1,5 +1,3 @@
-@import "bourbon";
-
 @import url(https://fonts.googleapis.com/css?family=Patua+One);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
@@ -9,15 +7,6 @@ $white: #fff;
 $grey-black: #222;
 $olive: #364e41;
 
-body {
-  background: #fff;
-  height: 100%;
-  font-family: 'Open Sans', sans-serif;
-}
-
-p {
-  line-height: 1.5;
-}
 
 // Nav Button
 .nav-trigger {
@@ -143,31 +132,4 @@ nav.in li {
   top: 50%;
   margin-top: -8px;
   text-transform: uppercase;
-}
-
-
-.header h1 {
-  width: 100%;
-  color: #fff;
-  position: absolute;
-  margin: 0;
-  font-family: $headings;
-  text-align: center;
-  display: block;
-  top: 50%;
-}
-
-.content {
-  @include box-sizing(border-box);
-  max-width: 600px;
-  padding: 20px;
-  margin: 0 auto;
-}
-
-.credit {
-  color: #364e41;
-}
-
-.credit a {
-  color: #364e41;
 }

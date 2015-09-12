@@ -141,6 +141,7 @@ $(document).ready(function() {
     if (paramPage) curPage = paramPage;
     navigating = true;
     var calculatedMargin = 0 - (curPage - 1) * 100;
+
     $(".bg-part, .left-part").css("margin-top", calculatedMargin +"vh");
     $(".scroll-down").addClass("removed");
     if (parseInt($(".nav-elem.active").attr("data-page")) === 1) {
@@ -197,6 +198,6 @@ $(document).ready(function() {
     setTimeout(function() {
       navigateDown()
     }, 4000)
-  }, 4000)
+  }, 6000)
   
 });
