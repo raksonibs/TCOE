@@ -735,7 +735,7 @@ u:hover {
 
 @media screen and (max-width: 644px){
   .header {
-    font-size: 1em;
+    font-size: 1.67em;
   }
   .exercise-tab { 
     left: 35%;
@@ -747,7 +747,7 @@ u:hover {
     margin: 0 15px;
   }
   .header {
-    font-size: 1em;
+    font-size: 1.67em;
   }
   .exercise-tab { 
     left: 29%;
@@ -775,5 +775,14 @@ u:hover {
 }
 
 .post-body-container {
-  margin-bottom: 50px;
+  margin-bottom: 100px;
+}
+
+.img-large {
+  -webkit-filter: brightness(0.33);
+  filter: brightness(0.33);
+}
+
+.nav-label a {
+  color: #D5D2D2
 }
