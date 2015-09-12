@@ -195,9 +195,9 @@ $(document).ready(function() {
 
   setTimeout(function() {
     navigateDown()
-    setTimeout(function() {
-      navigateDown()
-    }, 4000)
+    // setTimeout(function() {
+    //   // navigateDown()
+    // }, 4000)
   }, 6000)
   
 });
