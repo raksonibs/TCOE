@@ -25,7 +25,6 @@ $maxNavItems: 10;
 $realSidebarWidth: 30rem;
 html, body {
   font-size: 62.5%; // makes 1 rem = 10px
-  overflow: hidden;
 }
 .main {
   width: 100%;
@@ -398,4 +397,8 @@ html, body {
   a {
     color: rgba(255,170,170,1);
   }
+}
+
+.final-page {
+  display: none;
 }

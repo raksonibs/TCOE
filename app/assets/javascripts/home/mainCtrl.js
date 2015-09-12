@@ -16,6 +16,8 @@ function($scope, posts, $location, $sce, Auth, $timeout){
   $scope.posts = posts.posts;
   $scope.showLoadBar = true;
 
+  $scope.firstVisitNotLink = true
+
   $scope.thisPost = posts.posts[0];
 
   $scope.firstId = $scope.thisPost.id

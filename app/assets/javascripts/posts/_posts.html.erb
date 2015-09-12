@@ -1,10 +1,15 @@
+<div class="edit-header" ng-show="signedIn()" >
+  <button ng-click='changeToEdit()' ng-hide="editView">Edit View</button>
+  <button ng-click='changeToShow()' ng-hide="showView">Show View</button>
+</div>
+
 <div ng-hide="editView">
 <div class="imgHolder">
   <img src="{{thisPost.photo}}" alt="">
   <div class='header'>{{thisPost.title}}<BR /> {{thisPost.teaser}}</div>
 </div>
 
-<div class="container">
+<div class="container post-body-container">
   <div class="row">
     <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
       <div ng-model="postBody"><span style="font-size:20px; margin-left:10px;" ng-bind-html='toTrustedHTML( postBody )'>
@@ -15,6 +20,7 @@
 </div>
 
 <div ng-show="editView">
+<button type="submit" ng-click="updatePost(thisPost)" class="btn btn-primary">Edit Post</button>
 <header class="intro-header edit-header">
     <div class="container">
         <div class="row">
@@ -29,7 +35,7 @@
     </div>
 </header>
 
-<div class="container">
+<div class="container post-body-container">
   <div class="row">
     <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
       Photo: <input type="text" ng-model="photo" class="this-photo" value="{{thisPost.photo}}"></input>
@@ -51,13 +57,6 @@
     </div>
   </div>
 </div>
-
-<button type="submit" ng-click="updatePost(thisPost)" class="btn btn-primary">Edit Post</button>
-</div>
-
-<div class="edit-header" ng-show="signedIn()" >
-  <button ng-click='changeToEdit()' ng-hide="editView">Edit View</button>
-  <button ng-click='changeToShow()' ng-hide="showView">Show View</button>
 </div>
 
 <div class="container">

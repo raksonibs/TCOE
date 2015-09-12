@@ -25,7 +25,7 @@ function($scope, post, $location, posts, Auth, $sce){
 
   $scope.title = post.title;
   $scope.teaser = post.teaser;
-  $scope.photo = posts.posts[0].photo;
+  $scope.photo = post.photo;
 
   // $scope.showPageHero = $location.path() !== '/dashboard'
 
