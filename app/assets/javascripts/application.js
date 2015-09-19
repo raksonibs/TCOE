@@ -13,7 +13,6 @@
 
 $(document).ready(function() {
 
-
 var navTrigger = document.getElementById('nav-trigger');
 var nav = document.getElementById('nav');
 var header = document.getElementById('header');
@@ -45,7 +44,6 @@ function navToggle(e) {
 })
 
 $(document).on('ready', '.big-thing', function() {
-  debugger;
   $('.big-thing').css('height')
 })
 
@@ -207,6 +205,6 @@ $(document).ready(function() {
     setTimeout(function() {
       navigateDown()
     }, 4000)
-  }, 6000)
+  }, 4000)
   
 });

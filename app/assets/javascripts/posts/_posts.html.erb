@@ -4,59 +4,60 @@
 </div>
 
 <div ng-hide="editView">
-<div class="imgHolder">
-  <img class="img-large" src="{{thisPost.photo}}" alt="">
-  <div class='header'>{{thisPost.title}}<BR /> {{thisPost.teaser}}</div>
-</div>
-
-<div class="container post-body-container">
-  <div class="row">
-    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
-      <div ng-model="postBody"><span style="font-size:20px; margin-left:10px;" ng-bind-html='toTrustedHTML( postBody )'>
-      </span></div>
-    </div>
+  <div class="imgHolder">
+    <img class="img-large" src="{{thisPost.photo}}" alt="">
+    <div class='header'>{{thisPost.title}}<BR /> {{thisPost.teaser}}</div>
   </div>
-</div>
-</div>
 
-<div ng-show="editView">
-<button type="submit" ng-click="updatePost(thisPost)" class="btn btn-primary">Edit Post</button>
-<header class="intro-header edit-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
-                <div class="site-heading">                    
-                    <input type="text" ng-model="title" class="this-header" value="{{thisPost.title}}"></input>
-                    <hr class="small">
-                    <input type="text" ng-model="teaser" class="this-teaser" value="{{thisPost.teaser}}"></input>                    
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<div class="container post-body-container">
-  <div class="row">
-    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
-      Photo: <input type="text" ng-model="photo" class="this-photo" value="{{thisPost.photo}}"></input>
-      <div text-angular ng-model="postBody"><span style="font-size:20px; margin-left:10px;" ng-bind-html='toTrustedHTML( postBody )'>
-      </span></div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="exercises-container-edit">      
-      <div class="big-thing" ng-repeat="exercise in exercises">
-        <p data-keyword="{{exercise.keyword}}">{{exercise.body}} - {{exercise.keyword}}</p>
-        <input type="text" ng-model="exercise.body" class="this-exercise" value="{{exercise.body}}"></input>
-        <input type="text" ng-model="exercise.keyword" class="this-exercise" value="{{exercise.keyword}}"></input>
-        <button type="submit" ng-click="updateExercise(thisPost, exercise)" class="btn btn-primary">Edit Exercise</button>
+  <div class="container post-body-container">
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+        <div ng-model="postBody"><span style="font-size:20px; margin-left:10px;" ng-bind-html='toTrustedHTML( postBody )'>
+        </span></div>
       </div>
     </div>
   </div>
 </div>
+
+<div ng-show="editView">
+  <button type="submit" ng-click="updatePost(thisPost)" class="btn btn-primary">Edit Post</button>
+  <header class="intro-header edit-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+          <div class="site-heading">                    
+            <input type="text" ng-model="title" class="this-header" value="{{thisPost.title}}"></input>
+            <hr class="small">
+            <input type="text" ng-model="teaser" class="this-teaser" value="{{thisPost.teaser}}"></input>                    
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="exercises-container-edit">      
+        <div class="big-thing" ng-repeat="exercise in exercises">
+          <p data-keyword="{{exercise.keyword}}">{{exercise.body}} - {{exercise.keyword}}</p>
+          <input type="text" ng-model="exercise.body" class="this-exercise" value="{{exercise.body}}"></input>
+          <input type="text" ng-model="exercise.keyword" class="this-exercise" value="{{exercise.keyword}}"></input>
+          <button type="submit" ng-click="updateExercise(thisPost, exercise)" class="btn btn-primary">Edit Exercise</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container post-body-container">
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+        Photo: <input type="text" ng-model="photo" class="this-photo" value="{{thisPost.photo}}"></input>
+        <div text-angular ng-model="postBody"><span style="font-size:20px; margin-left:10px;" ng-bind-html='toTrustedHTML( postBody )'>
+        </span></div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <div class="container">
@@ -68,7 +69,7 @@
     </a>
     <div class="exercises-container">      
       <div class="big-thing" ng-repeat="exercise in exercises">
-        <p data-keyword="{{exercise.keyword}}">{{exercise.body}} - {{exercise.keyword}}</p>
+      <p data-keyword="{{exercise.keyword}}">{{exercise.body}}</p>
       </div>
     </div>
   </div>

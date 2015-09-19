@@ -20,6 +20,7 @@
 </div>
 
 <div ng-show="editView">
+  <button type="submit" ng-click="updatePost(thisPost)" class="btn btn-primary">Edit Post</button>
   <header class="intro-header edit-header">
     <div class="container post-body-container">
       <div class="row">
@@ -36,16 +37,6 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
-        Photo: <input type="text" ng-model="photo" class="this-photo" value="{{thisPost.photo}}"></input>
-        <div text-angular ng-model="postBody"><span style="font-size:20px; margin-left:10px;" ng-bind-html='toTrustedHTML( postBody )'>
-        </span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row">
       <div class="exercises-container-edit">      
         <div class="big-thing" ng-repeat="exercise in exercises">
           <p data-keyword="{{exercise.keyword}}">{{exercise.body}} - {{exercise.keyword}}</p>
@@ -57,7 +48,16 @@
     </div>
   </div>
 
-  <button type="submit" ng-click="updatePost(thisPost)" class="btn btn-primary">Edit Post</button>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+        Photo: <input type="text" ng-model="photo" class="this-photo" value="{{thisPost.photo}}"></input>
+        <div text-angular ng-model="postBody"><span style="font-size:20px; margin-left:10px;" ng-bind-html='toTrustedHTML( postBody )'>
+        </span></div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <div class="container">
@@ -69,7 +69,7 @@
     </a>
     <div class="exercises-container">      
       <div class="big-thing" ng-repeat="exercise in exercises">
-        <p data-keyword="{{exercise.keyword}}">{{exercise.body}} - {{exercise.keyword}}</p>
+      <p data-keyword="{{exercise.keyword}}">{{exercise.body}}</p>
       </div>
     </div>
   </div>
