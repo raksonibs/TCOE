@@ -484,4 +484,4 @@ Post.all.each do |post|
   end
 end 
 
-User.create({email: 'kacperniburski@gmail.com', password: 'testtest', password_confirmation: 'testtest'})
+User.create({email: '', password: '', password_confirmation: ''})
