@@ -12,6 +12,7 @@
   <div class="container post-body-container">
     <div class="row">
       <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+        <h1> {{thisPost.title}} </h1>
         <div ng-model="postBody"><span style="font-size:20px; margin-left:10px;" ng-bind-html='toTrustedHTML( postBody )'>
         </span></div>
       </div>
@@ -61,11 +62,13 @@
 </div>
 
 <div class="other-posts" ng-repeat="post in allposts">
+  <hr />
   <div class="container">
     <div class='row'>
       <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
           <p> 
             <h1>{{post.title}}</h1>
+            <br />
             <span style="font-size:20px; margin-left:10px;" ng-bind-html='toTrustedHTML( {{post.body}} )'>{{post.body}}</span>
           </p>
         </div>
