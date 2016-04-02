@@ -479,7 +479,7 @@ He sneezes out stories and poems at Mizpellt Wurdz, writes on a barrage of nonfi
 
 Post.all.each do |post|
   3.times do |i|
-    post.exercises << Exercise.new(body: 'Write about fighting the dogs.', keyword: "test#{i}")
+    post.exercises << Exercise.new(body: "#{post.id} Write about fighting the dogs. #{i}", keyword: "test#{i}")
     post.save
   end
 end 

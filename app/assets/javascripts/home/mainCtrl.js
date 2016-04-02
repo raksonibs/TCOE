@@ -29,12 +29,15 @@ function($scope, posts, $location, $sce, Auth, $timeout){
   $scope.allposts = posts.posts.filter(function(post,index) { if (index != 0) return post })
 
   post = posts.posts[0]
-  $scope.exercises = post.exercises
+
+  exercises = posts.posts.map(function(post) { return post.exercises })
+
+  $scope.exercises =  exercises
 
   $scope.title = posts.posts[0].title;
   $scope.teaser = posts.posts[0].teaser;
   $scope.photo = posts.posts[0].photo;
-  $scope.exercises = posts.posts[0].exercises;
+  // $scope.exercises = posts.posts[0].exercises;
 
   Auth.currentUser().then(function (user){
     $scope.user = user;

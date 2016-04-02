@@ -40,10 +40,14 @@
     <div class="row">
       <div class="exercises-container-edit">      
         <div class="big-thing" ng-repeat="exercise in exercises">
-          <p data-keyword="{{exercise.keyword}}">{{exercise.body}} - {{exercise.keyword}}</p>
-          <input type="text" ng-model="exercise.body" class="this-exercise" value="{{exercise.body}}"></input>
-          <input type="text" ng-model="exercise.keyword" class="this-exercise" value="{{exercise.keyword}}"></input>
-          <button type="submit" ng-click="updateExercise(thisPost, exercise)" class="btn btn-primary">Edit Exercise</button>
+            <div class="more-exer" ng-repeat="exer in exercise">
+            <p data-keyword="{{exer.keyword}}">       
+              <p data-keyword="{{exer.keyword}}">{{exer.body}} - {{exer.keyword}}</p>
+              <input type="text" ng-model="exer.body" class="this-exercise" value="{{exer.body}}"></input>
+              <input type="text" ng-model="exer.keyword" class="this-exercise" value="{{exer.keyword}}"></input>
+              <button type="submit" ng-click="updateExercise(thisPost, exer)" class="btn btn-primary">Edit Exercise</button>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -69,7 +73,7 @@
           <p> 
             <h1>{{post.title}}</h1>
             <br />
-            <span style="font-size:20px; margin-left:10px;" ng-bind-html='toTrustedHTML( {{post.body}} )'>{{post.body}}</span>
+            <span style="font-size:20px; margin-left:10px;" ng-bind-html='toTrustedHTML(post.body)'>{{post.body}}</span>
           </p>
         </div>
       </div>
@@ -85,7 +89,11 @@
     </a>
     <div class="exercises-container">      
       <div class="big-thing" ng-repeat="exercise in exercises">
-      <p data-keyword="{{exercise.keyword}}">{{exercise.body}}</p>
+        <div class="more-exer" ng-repeat="exer in exercise">
+          <p data-keyword="{{exer.keyword}}">       
+            {{exer.body}}
+          </p>
+        </div>
       </div>
     </div>
   </div>
