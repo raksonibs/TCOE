@@ -60,6 +60,19 @@
 
 </div>
 
+<div class="other-posts" ng-repeat="post in allposts">
+  <div class="container">
+    <div class='row'>
+      <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+          <p> 
+            <h1>{{post.title}}</h1>
+            <span style="font-size:20px; margin-left:10px;" ng-bind-html='toTrustedHTML( {{post.body}} )'>{{post.body}}</span>
+          </p>
+        </div>
+      </div>
+  </div>
+</div>
+
 <div class="container">
   <div class="holder">
     <a href="">

@@ -22,7 +22,11 @@ function($scope, posts, $location, $sce, Auth, $timeout){
 
   $scope.firstId = $scope.thisPost.id
 
-  $scope.postBody =  posts.posts[0].body;
+  $scope.postBody = posts.posts[0].body;
+
+  $scope.allpostsBodies = posts.posts.map(function(post) { return post.body } )
+
+  $scope.allposts = posts.posts.filter(function(post,index) { if (index != 0) return post })
 
   post = posts.posts[0]
   $scope.exercises = post.exercises
