@@ -1,5 +1,5 @@
 
-angular.module('photographerNews')
+angular.module('tcoe')
 .controller('dashboardCtrl', [
 '$scope',
 '$location',

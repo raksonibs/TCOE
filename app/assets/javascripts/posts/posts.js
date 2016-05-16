@@ -1,4 +1,4 @@
-angular.module('photographerNews')
+angular.module('tcoe')
 .factory('posts', [
 '$http',
 function($http){

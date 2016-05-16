@@ -1,4 +1,4 @@
-angular.module('photographerNews')
+angular.module('tcoe')
 .controller('AuthCtrl', [
 '$scope',
 '$state',

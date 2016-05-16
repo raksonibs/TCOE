@@ -1,4 +1,4 @@
-var myApp = angular.module('photographerNews', ['ui.router','templates', 'Devise', 'textAngular']);
+var myApp = angular.module('tcoe', ['ui.router','templates', 'Devise', 'textAngular']);
 
 
 myApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
