@@ -46,3 +46,5 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'bourbon'
 gem 'pg'
 gem 'rack-cors', :require => 'rack/cors'
+
+gem "rails-erd"
